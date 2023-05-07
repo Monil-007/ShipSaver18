@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 import ParallaxComponent from "./components/Parallax/Parallax";
 import LandingPage from "./components/LandingPage/LandingPage";
+import SecondPage from "./components/SecondPage/SecondPage";
 
 
 //import InputForm from "./components/InputForm/InputForm";
@@ -27,6 +28,7 @@ function App() {
         <Router>
           <Routes>
             <Route exact path='/' element={<LandingPage />} />
+            <Route exact path='/sp' element={<SecondPage />} />
           </Routes>
 
         </Router>

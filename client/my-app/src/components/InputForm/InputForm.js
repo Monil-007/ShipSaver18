@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../InputForm/IF.css";
+import { useNavigate } from "react-router-dom"
 
 const InputForm1 = () => {
     const handleEntry = async () => {
@@ -28,8 +29,6 @@ const InputForm1 = () => {
 }
 
 
-
-
 function Card({ title, content }) {
     const [isHovering, setIsHovering] = useState(false);
 
@@ -46,16 +45,24 @@ function Card({ title, content }) {
 }
 
 function InputForm() {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate('/sp');
+    }
+
     return (
         <div className="Cards">
             <Card
                 title="Register your Product"
                 content="Enter your product details and wait for few moments untill we get you your partner for ordering combinely"
+
             />
             <Card
                 title="Find Nearby customers"
                 content="Want to check customers count nearby you with different product price range so as to save the delivery fees? "
             />
+            <button onClick={handleClick}>Go</button>
         </div>
     );
 }
