@@ -1,0 +1,104 @@
+/* .Navbar {
+    top: -9em;
+    position: relative;
+    right: -68em;
+}
+
+.ul {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.Ele {
+    margin-right: 3em;
+    cursor: pointer;
+    text-decoration: none;
+    list-style: none;
+
+}
+
+.login {
+    background-color: orange;
+    padding: 5px 5px;
+    text-decoration: none;
+    color: aliceblue;
+    list-style: none;
+}
+
+.login:hover {
+    background-color: chartreuse;
+    cursor: pointer;
+} */
+nav {
+    position: relative;
+
+    height: 50px;
+    background-color: rgb(51, 241, 171);
+}
+
+ul {
+    position: relative;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+li {
+    margin-right: 48px;
+}
+
+.login {
+    margin-right: 3em;
+    padding: 10px 20px;
+    background-color: orange;
+    border-radius: 5px;
+}
+
+.login:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+.login a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+}
+
+.dropdown-menu li:hover a {
+    background-color: #4CAF50;
+}
