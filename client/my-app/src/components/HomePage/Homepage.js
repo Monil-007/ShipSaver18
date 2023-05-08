@@ -1,6 +1,8 @@
 import React from 'react'
 import '../HomePage/Homepage.css';
+import Symb from '../HomePage/NDF.png'
 import Navbar from '../Navbar/Navbar';
+
 
 const Homepage = () => {
     return (
@@ -17,8 +19,12 @@ const Homepage = () => {
                 <div class="sect4"> lorem ipsum loremjhjkhkjhk lorem ipsumlorem ipsum lorem ipsum</div>
             </div>
             <svg viewBox="0 0 500 100">
-                <path d="M 0 30 C 150 100 280 0 500 20 L 500 0 L 0 0" fill="rgb(51, 241, 171)"></path>
+                <path d="M 0 30 C 150 100 280 0 500 20 L 500 0 L 0 0" fill="rgb(29, 215, 235)"></path>
+
             </svg>
+            <div class="centered-image">
+                <img src={Symb} alt="NDF"></img>
+            </div>
             <div class="container">
                 <div class="box">
                     <i class="fa fa-star"></i>
