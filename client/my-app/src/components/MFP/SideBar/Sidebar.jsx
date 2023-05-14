@@ -176,7 +176,6 @@ const SideBar = ({ children }) => {
                                 />
                             )}
                         </AnimatePresence>
-
                     </div>
                     <section className="routes">
                         {routes.map((route, index) => {
