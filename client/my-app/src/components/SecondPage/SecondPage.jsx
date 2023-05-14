@@ -40,7 +40,8 @@ const SecondPage = () => {
 
     return (
         <>
-            <Formik
+            <div style={{ "color": "black" }}><h1>Radhe Govind</h1></div>
+            {/* <Formik
                 initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={(values, { setSubmitting }) => {
@@ -88,7 +89,7 @@ const SecondPage = () => {
                         </Button>
                     </Form>
                 )}
-            </Formik>
+            </Formik> */}
 
             <DataDisplay isLoading={isLoading} />
 
