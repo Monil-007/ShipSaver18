@@ -13,7 +13,7 @@ import '../SideBar/Sidebar.css';
 
 const routes = [
     {
-        path: "/",
+        path: "/dashboard",
         name: "Dashboard",
         icon: <FaHome />,
     },
