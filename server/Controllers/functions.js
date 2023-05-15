@@ -34,5 +34,4 @@ const rkGetfunc = async (req, res) => {
         }
     }
 }
-
 module.exports = { rkfunc, rkGetfunc };
