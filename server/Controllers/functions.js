@@ -18,6 +18,7 @@ const rkfunc = async (req, res) => {
     // res.json({ result: `${{ er1, er2 }}` });
 }
 
+
 const rkGetfunc = async (req, res) => {
     console.log("Inside get req, hare krishna");
     console.log(req.body);
