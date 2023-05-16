@@ -1,0 +1,43 @@
+.reg_prod {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.sdb {
+    margin-right: auto;
+}
+
+.form-container {
+    background-color: #f0f0f0;
+    flex: 1 0 auto;
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20vh;
+
+}
+
+.r1 {
+    display: flex;
+
+
+}
+
+.r2 {
+    display: flex;
+
+
+}
+
+.r3 {
+    display: flex;
+
+}
+
+.cnt {
+    display: flex;
+    justify-content: space-around;
+}

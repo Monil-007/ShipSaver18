@@ -26,12 +26,20 @@ const rkGetfunc = async (req, res) => {
     const LN = req.body.lastName;
     const price = req.body.price;
     const EL = req.body.email;
-    usr.find({ price: { $gte: 500, $lte: 500 - price } }).toArray(function (err, docs) {
-        if (err) {
-            console.error('Error querying the database:', err);
-        } else {
-            console.log('Documents within the price range:', docs);
-        }
-    }
+    // { price: { $lte: 500 } }
+    //const dt1 = await usr.find({ age: { $gte: `${price}` } });
+    await usr.find({ price: { $gte: `${price}` } }).then(
+        (dwt) => { console.log(dwt); }
+    )
+    //const rs = usr.find({ "price": "500" });
+    //rs.map(entry => console.log(entry));
+    //console.log(rs);
+    //if (dt1) { console.log(dt1); }
+    res.status(200).send("done!!!");
+    // db.articles.find({
+    //     "stock.country" : "01",
+    //     "stock.warehouse.code" : "02"
+    // }).pretty();
 }
+
 module.exports = { rkfunc, rkGetfunc };

@@ -6,6 +6,7 @@ import { BiCog } from "react-icons/bi";
 import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { useState } from "react";
+import { FaCashRegister } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./Sidebarmenu";
 import '../SideBar/Sidebar.css';
@@ -16,6 +17,11 @@ const routes = [
         path: "/dashboard",
         name: "Dashboard",
         icon: <FaHome />,
+    },
+    {
+        path: "/reg_product",
+        name: "Register Product",
+        icon: <FaCashRegister />,
     },
     {
         path: "/users",
@@ -90,7 +96,7 @@ const routes = [
 ];
 
 const SideBar = ({ children }) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen);
     const inputAnimation = {
         hidden: {
@@ -151,7 +157,7 @@ const SideBar = ({ children }) => {
                                     exit="hidden"
                                     className="logo"
                                 >
-                                    DoSomeCoding
+                                    CutOffDelivery
                                 </motion.h1>
                             )}
                         </AnimatePresence>

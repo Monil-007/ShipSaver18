@@ -22,7 +22,22 @@ const Trial5 = () => {
                 "Content-Type": "application/json",
             },
         }).then(resp => resp.json()).then((dt) => { console.log(dt); SetIsLoading(false); }).catch((err) => { console.log(err); })
+    }
 
+    const getCust = async () => {
+        const dt = {
+            firstName: `${firstName}`,
+            lastName: `${lastName}`,
+            email: `${email}`,
+            price: `${price}`,
+        }
+        await fetch(`http://localhost:3000/api/rkGet`, {
+            method: "POST",
+            body: JSON.stringify(dt),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then(resp => resp.json()).then((dt) => { console.log(dt); SetIsLoading(false); }).catch((err) => { console.log(err); })
     }
     return (
         <div style={{ "display": "flex" }}>
@@ -38,7 +53,9 @@ const Trial5 = () => {
                 <label>Product Price: </label><input value={price} onChange={(e) => { setPrice(e.target.value); console.log(e.target.value); }}></input>
                 <br></br>
                 <button onClick={caller}>Submit</button>
+                <button onClick={getCust}>get Customers</button>
             </div>
+
 
         </div>
     )
