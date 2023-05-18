@@ -6,7 +6,8 @@ import '../RegisterProduct/RegisterProduct.css'
 
 const RegisterProduct = () => {
     const [formData, setFormData] = useState({
-        name: '',
+        firstname: '',
+        lastname: '',
         phone: '',
         gender: '',
         email: '',
@@ -40,8 +41,12 @@ const RegisterProduct = () => {
     const validateForm = () => {
         const errors = {};
 
-        if (formData.name.trim() === '') {
-            errors.name = 'Name is required';
+        if (formData.firstname.trim() === '') {
+            errors.firstname = 'First Name is required';
+        }
+
+        if (formData.lastname.trim() === '') {
+            errors.lastname = 'Last Name is required';
         }
 
         if (formData.phone.trim() === '') {
@@ -64,24 +69,93 @@ const RegisterProduct = () => {
             <div className="sdb">
                 <SideBar />
             </div>
+            <div className="getDetails">
+                <h1>Register Product</h1>
+                <div className="form-container">
+                    <div className="form-row">
+                        <div className="form-item">
+                            <label htmlFor="input1">First Name:</label>
+                            <input type="text" id="input1" name="input1" />
+                        </div>
+                        <div className="form-item">
+                            <label htmlFor="input2">Middle Name:</label>
+                            <input type="text" id="input2" name="input2" />
+                        </div>
+                        <div className="form-item">
+                            <label htmlFor="input3">Last Name:</label>
+                            <input type="text" id="input3" name="input3" />
+                        </div>
+                    </div>
+                    <div className="form-row-2">
+                        <div className="form-item">
+                            <label htmlFor="input1">Email:</label>
+                            <input type="text" id="input1" name="input1" />
+                        </div>
+                        <div className="form-item">
+                            <label htmlFor="input2">Phone:</label>
+                            <input type="text" id="input2" name="input2" />
+                        </div>
 
-            <div className="form-container">
+                    </div>
+                    <div className="form-row">
+                        <div className="form-item">
+                            <label htmlFor="input4">Product Link:</label>
+                            <input type="text" id="input4" name="input4" />
+                        </div>
+                        <div className="form-item">
+                            <label htmlFor="input5">Product Price:</label>
+                            <input type="text" id="input5" name="input5" />
+                        </div>
+                        <div className="form-item">
+                            <label htmlFor="input6">Delivery Charge:</label>
+                            <input type="text" id="input6" name="input6" />
+                        </div>
+                    </div>
+                    <div className="form-row-2">
+                        <div className="form-item">
+                            <label htmlFor="input1">Gender:</label>
+                            <input type="text" id="input1" name="input1" />
+                        </div>
+                        <div className="form-item">
+                            <label htmlFor="input2">Acceptable Range (in kms):</label>
+                            <input type="text" id="input2" name="input2" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            {/* <div className="form-container">
                 <h1>Register Product</h1>
                 <Container className="cnt">
-                    <Form onSubmit={handleSubmit} className="cnt">
+                    <Form onSubmit={handleSubmit} >
                         <Row className="r1">
                             <Col sm={6}>
                                 <FormGroup>
-                                    <Label for="name">Name:</Label>
+                                    <Label for="name">First Name:</Label>
                                     <Input
                                         type="text"
-                                        id="name"
-                                        name="name"
-                                        value={formData.name}
+                                        id="firstname"
+                                        name="firstname"
+                                        value={formData.firstname}
                                         onChange={handleChange}
-                                        invalid={errors.name !== undefined}
+                                        invalid={errors.firstname !== undefined}
                                     />
-                                    {errors.name && <FormFeedback>{errors.name}</FormFeedback>}
+                                    {errors.firstname && <FormFeedback>{errors.firstname}</FormFeedback>}
+                                </FormGroup>
+                            </Col>
+                            <Col sm={6}>
+                                <FormGroup>
+                                    <Label for="name">Last Name:</Label>
+                                    <Input
+                                        type="text"
+                                        id="lastname"
+                                        name="lastname"
+                                        value={formData.lastname}
+                                        onChange={handleChange}
+                                        invalid={errors.lastname !== undefined}
+                                    />
+                                    {errors.lastname && <FormFeedback>{errors.lastname}</FormFeedback>}
                                 </FormGroup>
                             </Col>
                             <Col sm={6} >
@@ -159,14 +233,12 @@ const RegisterProduct = () => {
                                 </FormGroup>
                             </Col>
                         </Row>
-                        {/* <Button type="submit" color="primary">
-                        Submit
-                    </Button> */}
-                    </Form>
-                </Container>
-            </div>
+                  
+        </Form>
+                </Container >
+            </div >  */}
 
-        </div>
+        </div >
 
     );
 };
