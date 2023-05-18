@@ -1,4 +1,5 @@
-import { SET_FORM_DATA } from '../actions/formActions';
+
+import { SET_FORM_DATA } from '../Actions/formAction';
 
 const initialState = {
     formData: null,

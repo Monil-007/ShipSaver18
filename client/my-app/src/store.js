@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk'; // Optional: for asynchronous actions
+import App from './App';
 
 // Import your reducers
-import formDataReducer from './reducers/formDataReducer';
+import formDataReducer from './Reducers/formReducers.js';
+
 
 // Combine your reducers
 const rootReducer = combineReducers({
@@ -12,13 +14,14 @@ const rootReducer = combineReducers({
 });
 
 // Create the Redux store
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const appstore = createStore(rootReducer, applyMiddleware(thunk));
 
+export default appstore;
 // Wrap your app with the Redux Provider
-const App = () => (
-    <Provider store={store}>
-        <YourAppComponent />
-    </Provider>
-);
+// const App = () => (
+//     <Provider store={store}>
+//         <App />
+//     </Provider>
+// );
 
-export default App;
+// export default App;

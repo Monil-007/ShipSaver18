@@ -35,6 +35,7 @@ const RegisterProduct = ({ setFormData }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        console.log(name + value);
         setFormData1((prevData) => ({
             ...prevData,
             [name]: value,
@@ -52,7 +53,7 @@ const RegisterProduct = ({ setFormData }) => {
         } else {
             setFormData(formData);
             // Form submission logic here
-            console.log('Form submitted:' + formData);
+            console.log('Form submitted:' + JSON.stringify(formData));
         }
 
     };
@@ -98,50 +99,55 @@ const RegisterProduct = ({ setFormData }) => {
                     <div className="form-row">
                         <div className="form-item">
                             <label htmlFor="input1">First Name:</label>
-                            <input type="text" id="input1" name="firstname" value={firstname} />
+                            <input onChange={handleChange} type="text" id="input1" name="firstname" value={formData.firstname} />
+                            {errors.firstname && <FormFeedback>{errors.firstname}</FormFeedback>}
                         </div>
                         <div className="form-item">
                             <label htmlFor="input2">Middle Name:</label>
-                            <input type="text" id="input2" name="middlename" value={middlename} />
+                            <input onChange={handleChange} type="text" id="input2" name="middlename" value={formData.middlename} />
+                            {errors.middlename && <FormFeedback>{errors.middlename}</FormFeedback>}
                         </div>
                         <div className="form-item">
                             <label htmlFor="input3">Last Name:</label>
-                            <input type="text" id="input3" name="lastname" value={lastname} />
+                            <input onChange={handleChange} type="text" id="input3" name="lastname" value={formData.lastname} />
+                            {errors.lastname && <FormFeedback>{errors.lastname}</FormFeedback>}
                         </div>
                     </div>
                     <div className="form-row-2">
                         <div className="form-item">
                             <label htmlFor="input1">Email:</label>
-                            <input type="text" id="input1" name="email" value={email} />
+                            <input onChange={handleChange} type="text" id="input1" name="email" value={formData.email} />
+                            {errors.email && <FormFeedback>{errors.email}</FormFeedback>}
                         </div>
                         <div className="form-item">
                             <label htmlFor="input2">Phone:</label>
-                            <input type="text" id="input2" name="phone" value={phone} />
+                            <input onChange={handleChange} type="text" id="input2" name="phone" value={formData.phone} />
+                            {errors.phone && <FormFeedback>{errors.phone}</FormFeedback>}
                         </div>
 
                     </div>
                     <div className="form-row">
                         <div className="form-item">
                             <label htmlFor="input4">Product Link:</label>
-                            <input type="text" id="input4" name="prodlink" value={prodlink} />
+                            <input onChange={handleChange} type="text" id="input4" name="prodlink" value={formData.prodlink} />
                         </div>
                         <div className="form-item">
                             <label htmlFor="input5">Product Price:</label>
-                            <input type="text" id="input5" name="prodprice" value={prodprice} />
+                            <input onChange={handleChange} type="text" id="input5" name="prodprice" value={formData.prodprice} />
                         </div>
                         <div className="form-item">
                             <label htmlFor="input6">Delivery Charge:</label>
-                            <input type="text" id="input6" name="delcharge" value={delcharge} />
+                            <input onChange={handleChange} type="text" id="input6" name="delcharge" value={formData.delcharge} />
                         </div>
                     </div>
                     <div className="form-row-2">
                         <div className="form-item">
                             <label htmlFor="input1">Gender:</label>
-                            <input type="text" id="input1" name="gender" value={gender} />
+                            <input onChange={handleChange} type="text" id="input1" name="gender" value={formData.gender} />
                         </div>
                         <div className="form-item">
                             <label htmlFor="input2">Acceptable Range (in kms):</label>
-                            <input type="text" id="input2" name="accrange" value={accrange} />
+                            <input onChange={handleChange} type="text" id="input2" name="accrange" value={formData.accrange} />
                         </div>
 
                     </div>

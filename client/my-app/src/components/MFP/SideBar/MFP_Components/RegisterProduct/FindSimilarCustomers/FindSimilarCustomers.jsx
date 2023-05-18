@@ -33,14 +33,17 @@ const FindSimilarCustomers = ({ formData }) => {
         //     email: `${email}`,
         //     price: `${price}`,
         // }
-        const dt = formData;
-        await fetch(`http://localhost:3000/api/rkGet`, {
-            method: "POST",
-            body: JSON.stringify(dt),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        }).then(resp => resp.json()).then((dt) => { CustData = dt; }).catch((err) => { console.log(err); })
+        const dt = JSON.stringify(formData);
+        console.log("here is form data radhe govind: " + dt);
+        // await fetch(`http://localhost:3000/api/rkGet`, {
+        //     method: "POST",
+        //     body: JSON.stringify(dt),
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        // }).then(resp => resp.json()).then((dt) => { CustData = dt; }).catch((err) => { console.log(err); })
+
+
     }
 
     useEffect(() => {
