@@ -2,27 +2,44 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button, FormFeedback } from 'reactstrap';
 import SideBar from '../../Sidebar';
 import '../RegisterProduct/RegisterProduct.css'
+import { connect } from 'react-redux';
+import { setFormData } from '../../../../../Actions/formAction.js';
 
 
-const RegisterProduct = () => {
-    const [formData, setFormData] = useState({
+const RegisterProduct = ({ setFormData }) => {
+    const [firstname, setFirstname] = useState('');
+    const [middlename, setMiddlename] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [gender, setGender] = useState('');
+    const [delcharge, setDelcharge] = useState('');
+    const [accrange, setAccrange] = useState('');
+    const [prodlink, setProdlink] = useState('');
+    const [prodprice, setProdprice] = useState('');
+
+    const [formData, setFormData1] = useState({
         firstname: '',
+        middlename: '',
         lastname: '',
         phone: '',
         gender: '',
         email: '',
-        price: '',
-        quantity: '',
+        prodprice: '',
+        prodlink: '',
+        delcharge: '',
+        accrange: '',
     });
 
     const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData((prevData) => ({
+        setFormData1((prevData) => ({
             ...prevData,
             [name]: value,
         }));
+
     };
 
     const handleSubmit = (e) => {
@@ -33,9 +50,11 @@ const RegisterProduct = () => {
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
         } else {
+            setFormData(formData);
             // Form submission logic here
-            console.log('Form submitted:', formData);
+            console.log('Form submitted:' + formData);
         }
+
     };
 
     const validateForm = () => {
@@ -43,6 +62,10 @@ const RegisterProduct = () => {
 
         if (formData.firstname.trim() === '') {
             errors.firstname = 'First Name is required';
+        }
+
+        if (formData.middlename.trim() === '') {
+            errors.middlename = 'Middle Name is required';
         }
 
         if (formData.lastname.trim() === '') {
@@ -75,51 +98,58 @@ const RegisterProduct = () => {
                     <div className="form-row">
                         <div className="form-item">
                             <label htmlFor="input1">First Name:</label>
-                            <input type="text" id="input1" name="input1" />
+                            <input type="text" id="input1" name="firstname" value={firstname} />
                         </div>
                         <div className="form-item">
                             <label htmlFor="input2">Middle Name:</label>
-                            <input type="text" id="input2" name="input2" />
+                            <input type="text" id="input2" name="middlename" value={middlename} />
                         </div>
                         <div className="form-item">
                             <label htmlFor="input3">Last Name:</label>
-                            <input type="text" id="input3" name="input3" />
+                            <input type="text" id="input3" name="lastname" value={lastname} />
                         </div>
                     </div>
                     <div className="form-row-2">
                         <div className="form-item">
                             <label htmlFor="input1">Email:</label>
-                            <input type="text" id="input1" name="input1" />
+                            <input type="text" id="input1" name="email" value={email} />
                         </div>
                         <div className="form-item">
                             <label htmlFor="input2">Phone:</label>
-                            <input type="text" id="input2" name="input2" />
+                            <input type="text" id="input2" name="phone" value={phone} />
                         </div>
 
                     </div>
                     <div className="form-row">
                         <div className="form-item">
                             <label htmlFor="input4">Product Link:</label>
-                            <input type="text" id="input4" name="input4" />
+                            <input type="text" id="input4" name="prodlink" value={prodlink} />
                         </div>
                         <div className="form-item">
                             <label htmlFor="input5">Product Price:</label>
-                            <input type="text" id="input5" name="input5" />
+                            <input type="text" id="input5" name="prodprice" value={prodprice} />
                         </div>
                         <div className="form-item">
                             <label htmlFor="input6">Delivery Charge:</label>
-                            <input type="text" id="input6" name="input6" />
+                            <input type="text" id="input6" name="delcharge" value={delcharge} />
                         </div>
                     </div>
                     <div className="form-row-2">
                         <div className="form-item">
                             <label htmlFor="input1">Gender:</label>
-                            <input type="text" id="input1" name="input1" />
+                            <input type="text" id="input1" name="gender" value={gender} />
                         </div>
                         <div className="form-item">
                             <label htmlFor="input2">Acceptable Range (in kms):</label>
-                            <input type="text" id="input2" name="input2" />
+                            <input type="text" id="input2" name="accrange" value={accrange} />
                         </div>
+
+                    </div>
+                    <div className="form-row-button">
+                        <div className="form-item">
+                            <button className="reg_button" onClick={handleSubmit}>Register the product</button>
+                        </div>
+
 
                     </div>
                 </div>
@@ -243,5 +273,6 @@ const RegisterProduct = () => {
     );
 };
 
-export default RegisterProduct;
+export default connect(null, { setFormData })(RegisterProduct);
+// export default RegisterProduct;
 

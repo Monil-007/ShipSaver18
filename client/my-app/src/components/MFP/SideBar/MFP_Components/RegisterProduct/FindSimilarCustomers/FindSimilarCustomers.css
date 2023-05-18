@@ -1,5 +1,6 @@
 .GSC {
     display: flex;
+
 }
 
 .GSC-main {
@@ -7,16 +8,66 @@
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
+
+
 }
 
 .GSC-heading {
     display: flex;
+    margin-top: 3em;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    margin-bottom: -29em;
 }
 
 .findButton {
+    margin-top: -5em;
+
     width: 20%;
     margin: auto;
+    border-radius: 5px;
+    background-color: lightgreen;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: black;
+    box-shadow: 0dvh;
+    cursor: pointer;
+    height: 5vh;
+}
+
+.findButton:hover {
+    transform: translate(0, -2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+/* CSS code for the card */
+.card {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translate(0, -2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-content {
+    margin-top: 10px;
+    font-size: 14px;
 }
