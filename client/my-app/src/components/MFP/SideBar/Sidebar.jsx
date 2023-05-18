@@ -24,6 +24,11 @@ const routes = [
         icon: <FaCashRegister />,
     },
     {
+        path: "/find_sim_cust",
+        name: "Find Similar Customers",
+        icon: <FaCashRegister />,
+    },
+    {
         path: "/users",
         name: "Users",
         icon: <FaUser />,
