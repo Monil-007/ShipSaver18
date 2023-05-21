@@ -5,7 +5,15 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    middleName: {
+        type: String,
+        required: false
+    },
     lastName: {
+        type: String,
+        required: true
+    },
+    phone: {
         type: String,
         required: true
     },
@@ -13,9 +21,25 @@ const UserSchema = mongoose.Schema({
         type: String,
         required: false
     },
+    prodlink: {
+        type: String,
+        required: false
+    },
+    delcharge: {
+        type: String,
+        required: false
+    },
+    accrange: {
+        type: String,
+        required: false
+    },
     price: {
         type: Number,
         required: true
+    },
+    gender: {
+        type: String,
+        required: false
     }
 
 });

@@ -24,26 +24,45 @@ const Card = ({ title, content }) => {
 
 const FindSimilarCustomers = ({ formData }) => {
     const [isClicked, setIsClicked] = useState(false);
-    const CustData = [];
+
+    const [custData, setCustData] = useState({});
     const getCust = async () => {
+        try {
+            // const dt = {
+            //     firstName: `${firstName}`,
+            //     lastName: `${lastName}`,
+            //     email: `${email}`,
+            //     price: `${price}`,
+            // }
+            const dt = JSON.stringify(formData);
+            // console.log("here is form data radhe govind: " + dt);
+            // await fetch(`http://localhost:3000/api/rkGet`, {
+            //     method: "POST",
+            //     body: dt,
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            // })
+            //     .then(resp => { console.log(resp); }).then((dt1) => { setCustData(dt1); console.log("hare hare: " + dt1); }).catch((err) => { console.log(err) });
+            const response = await fetch("http://localhost:3000/api/rkGet", {
+                method: "POST",
+                body: dt,
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
 
-        // const dt = {
-        //     firstName: `${firstName}`,
-        //     lastName: `${lastName}`,
-        //     email: `${email}`,
-        //     price: `${price}`,
-        // }
-        const dt = JSON.stringify(formData);
-        console.log("here is form data radhe govind: " + dt);
-        // await fetch(`http://localhost:3000/api/rkGet`, {
-        //     method: "POST",
-        //     body: JSON.stringify(dt),
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
+            if (!response.ok) {
+                throw new Error("Request failed with status " + response.status);
+            }
+
+            const data = await response.json();
+            setCustData(data);
+            console.log("hare hare:", data);
+        } catch (error) {
+            console.error(error);
+        }
         // }).then(resp => resp.json()).then((dt) => { CustData = dt; }).catch((err) => { console.log(err); })
-
-
     }
 
     useEffect(() => {

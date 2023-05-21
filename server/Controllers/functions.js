@@ -22,24 +22,23 @@ const rkfunc = async (req, res) => {
 const rkGetfunc = async (req, res) => {
     console.log("Inside get req, hare krishna");
     console.log(req.body);
-    const FN = req.body.firstName;
-    const LN = req.body.lastName;
-    const price = req.body.price;
-    const EL = req.body.email;
+    // const FN = req.body.firstName;
+    // const LN = req.body.lastName;
+    const price = req.body.prodprice;
+    //const EL = req.body.email;
     // { price: { $lte: 500 } }
+    var res_array = [];
     //const dt1 = await usr.find({ age: { $gte: `${price}` } });
     await usr.find({ price: { $gte: `${price}` } }).then(
-        (dwt) => { console.log(dwt); }
+        (dwt) => { console.log(dwt); res_array = dwt }
     )
+    console.log(res_array);
     //const rs = usr.find({ "price": "500" });
     //rs.map(entry => console.log(entry));
     //console.log(rs);
     //if (dt1) { console.log(dt1); }
-    res.status(200).send("done!!!");
-    // db.articles.find({
-    //     "stock.country" : "01",
-    //     "stock.warehouse.code" : "02"
-    // }).pretty();
+    res.status(200).send(res_array);
+
 }
 
 
