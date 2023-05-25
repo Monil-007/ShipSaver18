@@ -10,6 +10,7 @@ import { FaCashRegister } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./Sidebarmenu";
 import '../SideBar/Sidebar.css';
+import { useEffect } from "react";
 
 
 const routes = [
@@ -136,6 +137,14 @@ const SideBar = ({ children }) => {
             },
         },
     };
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsOpen(window.innerWidth > 767);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
         <>

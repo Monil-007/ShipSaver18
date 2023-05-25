@@ -65,9 +65,9 @@ const RegisterProduct = ({ setFormData }) => {
             errors.firstname = 'First Name is required';
         }
 
-        if (formData.middlename.trim() === '') {
-            errors.middlename = 'Middle Name is required';
-        }
+        // if (formData.middlename.trim() === '') {
+        //     errors.middlename = 'Middle Name is required';
+        // }
 
         if (formData.lastname.trim() === '') {
             errors.lastname = 'Last Name is required';
@@ -281,4 +281,3 @@ const RegisterProduct = ({ setFormData }) => {
 
 export default connect(null, { setFormData })(RegisterProduct);
 // export default RegisterProduct;
-

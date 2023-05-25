@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import SideBar from '../../../Sidebar';
-import '../FindSimilarCustomers/FindSimilarCustomers.css';
+import './FindSimilarCustomers.css';
 import { Button } from 'reactstrap';
 import { connect } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
+import DeliveryBoyAnimation from '../../../../../../../src/assets/icons/DeliveryBoyAnimation.gif'
+import SearchingImageAnimation from '../../../../../../../src/assets/icons/SearchingImageAnimation.png'
 
 const useStyles = makeStyles({
     card: {
@@ -41,6 +43,11 @@ const useStyles = makeStyles({
         fontSize: '14px',
         color: '#666',
     },
+    loadingGif: {
+        width: '100px',
+        height: '100px',
+        margin: '20px',
+    },
 });
 
 const cardData = [
@@ -59,131 +66,99 @@ const cardData = [
     // Add more card data objects as needed
 ];
 
-const Card = ({ title, description }) => {
-    const classes = useStyles();
 
-    return (
-        <div className={classes.card}>
-            <div className={classes.overlay}></div>
-            <div>
-                <h3 className={classes.title}>{title}</h3>
-                <p className={classes.description}>{description}</p>
-            </div>
-        </div>
-    );
-};
 
-const cardsData = [
-    { id: 1, title: 'Card 1', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { id: 2, title: 'Card 2', content: 'Nullam nec neque ac ipsum pharetra commodo.' },
-    { id: 3, title: 'Card 3', content: 'Suspendisse euismod mauris eget justo lacinia, id ultrices lacus dignissim.' },
-    { id: 4, title: 'Card 4', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { id: 5, title: 'Card 5', content: 'Nullam nec neque ac ipsum pharetra commodo.' },
-    { id: 6, title: 'Card 6', content: 'Suspendisse euismod mauris eget justo lacinia, id ultrices lacus dignissim.' },
-    { id: 7, title: 'Card 7', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { id: 8, title: 'Card 8', content: 'Nullam nec neque ac ipsum pharetra commodo.' },
-    { id: 9, title: 'Card 9', content: 'Suspendisse euismod mauris eget justo lacinia, id ultrices lacus dignissim.' },
-    { id: 10, title: 'Card 10', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
-    { id: 11, title: 'Card 11', content: 'Nullam nec neque ac ipsum pharetra commodo.' },
-    { id: 12, title: 'Card 12', content: 'Suspendisse euismod mauris eget justo lacinia, id ultrices lacus dignissim.' },
-    // Add more card data as needed
-];
-
-// const Card = ({ title, content }) => {
-//     return (
-//         <div className="card">
-//             <h3 className="card-title">{title}</h3>
-//             <p className="card-content">{content}</p>
-//         </div>
-//     );
-// };
-
-// const Card = ({ title, content }) => {
-//     return (
-//         <div className="relative group rounded-lg bg-white shadow-lg p-4 cursor-pointer transition duration-300 transform hover:-translate-y-1 hover:shadow-xl">
-//             <div className="absolute inset-0 rounded-lg bg-gray-200 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-//             <div className="relative">
-//                 <h3 className="text-xl font-semibold mb-2">{title}</h3>
-//                 <p className="text-gray-700">{content}</p>
-//             </div>
-//         </div>
-//     );
-// };
 
 
 
 const FindSimilarCustomers = ({ formData }) => {
+    const classes = useStyles();
+    const Card = ({ title, description }) => {
+
+        return (
+            <div className={classes.card}>
+                <div className={classes.overlay}></div>
+                <div>
+                    <h3 className={classes.title}>{title}</h3>
+                    <p className={classes.description}>{description}</p>
+                </div>
+            </div>
+        );
+    };
     const [isClicked, setIsClicked] = useState(false);
 
-    const [custData, setCustData] = useState({});
-    const getCust = async () => {
+    const [custData, setCustData] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const getCust = () => {
         try {
-            // const dt = {
-            //     firstName: `${firstName}`,
-            //     lastName: `${lastName}`,
-            //     email: `${email}`,
-            //     price: `${price}`,
-            // }
             const dt = JSON.stringify(formData);
-            // console.log("here is form data radhe govind: " + dt);
-            // await fetch(`http://localhost:3000/api/rkGet`, {
-            //     method: "POST",
-            //     body: dt,
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //     },
-            // })
-            //     .then(resp => { console.log(resp); }).then((dt1) => { setCustData(dt1); console.log("hare hare: " + dt1); }).catch((err) => { console.log(err) });
-            const response = await fetch("http://localhost:3000/api/rkGet", {
+            fetch("http://localhost:3000/api/rkGet", {
                 method: "POST",
                 body: dt,
                 headers: {
                     "Content-Type": "application/json",
                 },
-            });
-
-            if (!response.ok) {
-                throw new Error("Request failed with status " + response.status);
-            }
-
-            const data = await response.json();
-            setCustData(data);
-            console.log("hare hare:", data);
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Request failed with status " + response.status);
+                    }
+                    return response.json();
+                })
+                .then(rs => {
+                    setCustData(rs);
+                    console.log(custData);
+                    console.log("hare hare:", rs);
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         } catch (error) {
             console.error(error);
         }
-        console.log(custData);
-        // }).then(resp => resp.json()).then((dt) => { CustData = dt; }).catch((err) => { console.log(err); })
-    }
+    };
 
     useEffect(() => {
-        setIsClicked(false);
-    }, []);
+        console.log(custData);
+    }, [custData, loading]);
 
     const FindButtonClicked = () => {
         setIsClicked(!isClicked);
+        setLoading(true);
         setTimeout(() => {
             getCust();
-        }, 4000)
+            setLoading(false);
+        }, 2000);
 
+
+        //getCust();
     }
 
     return (
-        <div className="GSC">
-            <SideBar />
-            <div className="GSC-main">
-                <div className="GSC-heading">
-                    <h1>Find Similar Customers near you</h1>
-                    <h4>Find Similar Customers like you to order together to save delivery charges</h4>
-                </div>
-                <button className='findButton' onClick={FindButtonClicked}>Find it!!</button>
-                {isClicked && custData && <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '36px' }}>
-                    {custData.map((card, index) => (
-                        <Card key={index} title={card.firstName} description={card.email} />
-                    ))}
-                </div>}
-            </div>
+        <div className="FSC">
+            <div className="GSC">
+                <SideBar />
+                <div className="GSC-main" style={isClicked ? { "marginTop": "-32vh" } : { "marginTop": "-32vh" }}>
+                    <div className="GSC-heading">
+                        <h1>Find Similar Customers near you</h1>
+                        <h4>Find Similar Customers like you to order together to save delivery charges</h4>
+                    </div>
+                    <div className="findbtn">
+                        <button className='findButton' onClick={FindButtonClicked}>Find it!!</button>
+                    </div>
 
+                    {isClicked ? !loading ?
+                        <div
+                            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '36px' }} >
+                            {custData.map((card, index) => (
+                                <Card key={index} title={card.firstName} description={card.email} />
+                            ))}
+
+                        </div> : <img src={SearchingImageAnimation} alt="Searching" className={classes.loadingGif} /> :
+                        <img src={DeliveryBoyAnimation} alt="Loading" className={classes.loadingGif} />}
+                </div>
+            </div>
         </div>
     )
 }
