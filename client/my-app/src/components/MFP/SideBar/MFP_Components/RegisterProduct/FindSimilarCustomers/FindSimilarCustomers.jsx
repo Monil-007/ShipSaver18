@@ -147,7 +147,6 @@ const FindSimilarCustomers = ({ formData }) => {
                     <div className="findbtn">
                         <button className='findButton' onClick={FindButtonClicked}>Find it!!</button>
                     </div>
-
                     {isClicked ? !loading ?
                         <div
                             style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '36px' }} >
