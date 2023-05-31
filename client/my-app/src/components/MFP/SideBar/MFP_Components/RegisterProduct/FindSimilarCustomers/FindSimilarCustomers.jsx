@@ -134,7 +134,6 @@ const FindSimilarCustomers = ({ formData }) => {
 
         //getCust();
     }
-
     return (
         <div className="FSC">
             <div className="GSC">
