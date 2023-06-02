@@ -1,8 +1,4 @@
-
-
 import InputForm from "./components/InputForm/InputForm";
-
-
 //import { Routes, Route } from "react-router-dom";
 import {
   BrowserRouter as Router,
