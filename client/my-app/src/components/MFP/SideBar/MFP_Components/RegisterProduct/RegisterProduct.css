@@ -1,46 +1,3 @@
-/* /* .reg_prod {
-    display: flex;
-    flex-direction: row;
-
-}
-
-.sdb {
-    margin-right: auto;
-} */
-/* 
-.form-container {
-    background-color: #f0f0f0;
-    flex: 1 0 auto;
-}
-
-.form-container h1 {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 20vh;
-
-}
-
-.r1 {
-    display: flex;
-    justify-content: space-around;
-
-}
-
-.r2 {
-    display: flex;
-}
-
-.r3 {
-    display: flex;
-
-}
-
-.cnt {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-} */
-
 .getDetails {
     display: flex;
     flex-direction: column;
@@ -52,7 +9,37 @@
     margin-top: 8vh;
     margin-bottom: 15vh;
     text-align: center;
+    animation: bounceAnimation 2s;
 }
+
+@keyframes bounceAnimation {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    20% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-50px);
+    }
+
+    60% {
+        transform: translateY(0);
+    }
+
+    80% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
 
 */ .form-container {
 
@@ -64,16 +51,16 @@
 .form-row {
     margin-left: 8vh;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-bottom: 8vh;
 }
 
 .form-row-2 {
-    margin-left: 28vh;
+    margin-left: 16vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 8rem;
     margin-bottom: 8vh;
 }
 
@@ -96,6 +83,41 @@ label {
     margin-bottom: 0.5rem;
 }
 
+.input-item-left {
+    opacity: 0;
+    transform: translateX(-70px);
+    animation: slide-in-left 2.9s forwards;
+}
+
+@keyframes slide-in-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-70px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.input-item-right {
+    opacity: 0;
+    transform: translateX(70px);
+    animation: slide-in-right 2.9s forwards;
+}
+
+@keyframes slide-in-right {
+    0% {
+        opacity: 0;
+        transform: translateX(70px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
 
 .reg_button {
@@ -113,7 +135,78 @@ label {
 }
 
 .reg_button:hover {
-    transform: translate(0, -2px);
+    transform: translate(0, -7px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 
 }
+
+
+/* ------------------ CHATGPT RK form---------------*/
+
+
+/* .input-form {
+    max-width: 600px;
+   
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin-bottom: 10px;
+}
+
+.label {
+    flex-basis: 30%;
+  
+    text-align: left;
+}
+
+.input-wrapper {
+    flex-basis: 70%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+Animation */
+/* .form-row input,
+.form-row .label {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Layout */
+/*
+@media screen and (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .input-wrapper {
+        flex-basis: 100%;
+    }
+
+    .form-row .label {
+        flex-basis: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+    }
+} */

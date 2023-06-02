@@ -2,6 +2,7 @@ import React from 'react'
 import '../HomePage/Homepage.css';
 import Symb from '../HomePage/NDF.png'
 import Navbar from '../Navbar/Navbar';
+import Carousel from '../Carousel/Carousel';
 
 
 const Homepage = () => {
@@ -42,7 +43,7 @@ const Homepage = () => {
                     <p>Description 3</p>
                 </div>
             </div>
-
+            <Carousel />
 
         </div>
     )
