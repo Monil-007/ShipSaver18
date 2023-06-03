@@ -45,18 +45,16 @@ const RegisterProduct = ({ setFormData }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setFormData(formData);
+        console.log(formData);
+        // const errors = validateForm();
+        // if (Object.keys(errors).length === 0) {
 
-        const validationErrors = validateForm();
-
-        if (Object.keys(validationErrors).length > 0) {
-            setErrors(validationErrors);
-        } else {
-            setFormData(formData);
-            // Form submission logic here
-            console.log('Form submitted:' + JSON.stringify(formData));
-        }
-
+        // } else {
+        //     setErrors(errors);
+        // }
     };
+
 
     const validateForm = () => {
         const errors = {};

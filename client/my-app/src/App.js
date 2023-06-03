@@ -5,26 +5,54 @@ import {
   Routes,
   Route,
   useRoutes,
+  Navigate,
 } from "react-router-dom";
-
+import { useEffect, useState } from "react";
 import LandingPage from "./components/LandingPage/LandingPage";
 import SecondPage from "./components/SecondPage/SecondPage";
 import Sidebar from "./components/MFP/SideBar/Sidebar";
 import Trial5 from "./components/MFP/SideBar/trial/Trial5";
 import RegisterProduct from "./components/MFP/SideBar/MFP_Components/RegisterProduct/RegisterProduct";
 import FindSimilarCustomers from "./components/MFP/SideBar/MFP_Components/RegisterProduct/FindSimilarCustomers/FindSimilarCustomers";
-
+import Login from "./components/Login/Login";
 //import InputForm from "./components/InputForm/InputForm";
 
 function App() {
 
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const getUser = () => {
+      fetch("http://localhost:3000/auth/login/success", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Credentials": true,
+        },
+      })
+        .then((response) => {
+          if (response.status === 200) return response.json();
+          throw new Error("authentication has been failed!");
+        })
+        .then((resObject) => {
+          setUser(resObject.user);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getUser();
+  }, []);
+
   return (
-
-
     <>
       <Router>
         <Routes>
           <Route exact path='/' element={<LandingPage />} />
+          <Route exact path='/login18' element={<Login />}></Route>
+          <Route exact path='/login1' element={user ? <Navigate to="/" /> : <Login />}></Route>
           <Route exact path='/sp' element={<SecondPage />} />
           <Route exact path='/mp' element={<Sidebar />} />
           <Route exact path='/dashboard' element={<Trial5 />} />

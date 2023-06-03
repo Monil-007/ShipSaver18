@@ -146,16 +146,17 @@ const FindSimilarCustomers = ({ formData }) => {
                     <div className="findbtn">
                         <button className='findButton' onClick={FindButtonClicked}>Find it!!</button>
                     </div>
+                    <div className="imageContainer">
+                        {isClicked ? !loading ?
+                            <div
+                                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '36px' }} >
+                                {custData.map((card, index) => (
+                                    <Card key={index} title={card.firstName} description={card.email} />
+                                ))}
 
-                    {isClicked ? !loading ?
-                        <div
-                            style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '36px' }} >
-                            {custData.map((card, index) => (
-                                <Card key={index} title={card.firstName} description={card.email} />
-                            ))}
-
-                        </div> : <img src={SearchingImageAnimation} alt="Searching" className={classes.loadingGif} /> :
-                        <img src={DeliveryBoyAnimation} alt="Loading" className={classes.loadingGif} />}
+                            </div> : <img src={SearchingImageAnimation} alt="Searching" /> :
+                            <img src={DeliveryBoyAnimation} alt="Loading" />}
+                    </div>
                 </div>
             </div>
         </div>
