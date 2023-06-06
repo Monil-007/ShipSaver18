@@ -15,7 +15,7 @@ const Trial5 = () => {
             email: `${email}`,
             price: `${price}`,
         }
-        await fetch(`http://localhost:3000/api/rk`, {
+        await fetch(`http://localhost:3000/DeliverySaverApi/rkRegister`, {
             method: "POST",
             body: JSON.stringify(dt),
             headers: {
@@ -31,7 +31,7 @@ const Trial5 = () => {
             email: `${email}`,
             price: `${price}`,
         }
-        await fetch(`http://localhost:3000/api/rkGet`, {
+        await fetch(`http://localhost:3000/DeliverySaverApi/rkGetSavers`, {
             method: "POST",
             body: JSON.stringify(dt),
             headers: {

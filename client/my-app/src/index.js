@@ -4,6 +4,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import appstore from "./store";
 import { Provider } from "react-redux";
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 
 
