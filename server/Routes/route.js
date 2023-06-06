@@ -1,11 +1,13 @@
 const express = require('express')
 const router = express.Router();
 
-const { rkfunc, rkGetfunc } = require('../Controllers/functions.js');
+const { register_product_func, find_delivery_savers_func } = require('../Controllers/functions.js');
 
 
-router.post('/api/rk', rkfunc);
-router.post('/api/rkGet/', rkGetfunc);
+router.post('/DeliverySaverApi/rkRegister', register_product_func);
+router.post('/DeliverySaverApi/rkGetSavers', find_delivery_savers_func);
+
+
 
 
 module.exports = router

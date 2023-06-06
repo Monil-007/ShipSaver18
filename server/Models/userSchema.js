@@ -11,7 +11,7 @@ const UserSchema = mongoose.Schema({
     },
     lastName: {
         type: String,
-        required: true
+        required: false
     },
     phone: {
         type: String,
@@ -30,14 +30,14 @@ const UserSchema = mongoose.Schema({
         required: false
     },
     accrange: {
-        type: String,
+        type: Number,
         required: false
     },
     price: {
         type: Number,
         required: true
     },
-    gender: {
+    reqgender: {
         type: String,
         required: false
     }

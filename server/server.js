@@ -3,7 +3,11 @@ const express = require('express');
 const connectDB = require('./DB/database.js');
 const passportSetup = require("./passport");
 const passport = require("passport");
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 const app = express();
+
 
 const bodyParser = require('body-parser');
 var cors = require('cors')

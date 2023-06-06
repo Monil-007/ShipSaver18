@@ -6,12 +6,14 @@ import { connect } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';
 import DeliveryBoyAnimation from '../../../../../../../src/assets/icons/DeliveryBoyAnimation.gif'
 import SearchingImageAnimation from '../../../../../../../src/assets/icons/SearchingImageAnimation.png'
+import dummyImage from '../../../../../../assets/icons/dummyImage.png'
+
 
 const useStyles = makeStyles({
     card: {
         position: 'relative',
         borderRadius: '4px',
-        height: '130px',
+
         backgroundColor: '#f0f0f0',
         boxShadow: '0 6px 9px rgba(0, 0, 0, 0.9)',
         padding: '16px',
@@ -27,7 +29,7 @@ const useStyles = makeStyles({
         inset: 0,
         borderRadius: '4px',
         opacity: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        // backgroundColor: 'rgba(0, 0, 0, 0.5)',
         transition: 'opacity 0.3s',
         '&:hover': {
             opacity: 1,
@@ -50,37 +52,33 @@ const useStyles = makeStyles({
     },
 });
 
-const cardData = [
-    { title: 'Card 1', description: 'Description 1' },
-    { title: 'Card 2', description: 'Description 2' },
-    { title: 'Card 3', description: 'Description 3' },
-    { title: 'Card 4', description: 'Description 4' },
-    { title: 'Card 5', description: 'Description 5' },
-    { title: 'Card 6', description: 'Description 6' },
-    { title: 'Card 7', description: 'Description 7' },
-    { title: 'Card 8', description: 'Description 8' },
-    { title: 'Card 9', description: 'Description 9' },
-    { title: 'Card 10', description: 'Description 10' },
-    { title: 'Card 11', description: 'Description 11' },
-    { title: 'Card 12', description: 'Description 12' },
-    // Add more card data objects as needed
-];
-
-
-
-
-
 
 const FindSimilarCustomers = ({ formData }) => {
     const classes = useStyles();
-    const Card = ({ title, description }) => {
+    const Card = ({ ind, Name, phone, email, price }) => {
 
         return (
             <div className={classes.card}>
                 <div className={classes.overlay}></div>
-                <div>
-                    <h3 className={classes.title}>{title}</h3>
-                    <p className={classes.description}>{description}</p>
+                <div className="CardDetails">
+                    <div className="cardTop">
+                        <p>Found user no.{ind}</p>
+                    </div>
+                    <div className="cardMiddle">
+                        <div className="contentLeft">
+                            <p>Full Name: {Name}</p>
+                            <p>Ordered Price: {price}</p>
+                        </div>
+                        <div className="contentRight">
+                            <img src={dummyImage} alt="Dummy" />
+                        </div>
+                    </div>
+                    <div className="cardBottom">
+                        <p>Email: {email}</p>
+                        <p>Phone: {phone}</p>
+                    </div>
+                    {/* <h3 className={classes.title}>{title}</h3>
+                    <p className={classes.description}>{description}</p> */}
                 </div>
             </div>
         );
@@ -93,7 +91,7 @@ const FindSimilarCustomers = ({ formData }) => {
     const getCust = () => {
         try {
             const dt = JSON.stringify(formData);
-            fetch("http://localhost:3000/api/rkGet", {
+            fetch("http://localhost:3000/DeliverySaverApi/rkGetSavers", {
                 method: "POST",
                 body: dt,
                 headers: {
@@ -134,7 +132,18 @@ const FindSimilarCustomers = ({ formData }) => {
 
         //getCust();
     }
+
+
+    const handleFilter = () => {
+        const sortedData = [...custData].sort((a, b) => b.price - a.price);
+        setCustData(sortedData);
+    };
+    const [user, setUser] = useState(null);
+    const [username, setUsername] = useState("hare");
     return (
+
+
+
         <div className="FSC">
             <div className="GSC">
                 <SideBar />
@@ -143,17 +152,26 @@ const FindSimilarCustomers = ({ formData }) => {
                         <h1>Find Similar Customers near you</h1>
                         <h4>Find Similar Customers like you to order together to save delivery charges</h4>
                     </div>
+                    {user && (
+                        <div className="profile-info">
+                            <img src={dummyImage} alt="Profile" className="profile-pic" />
+                            <p className="username">Hello, {username}</p>
+                        </div>)}
                     <div className="findbtn">
                         <button className='findButton' onClick={FindButtonClicked}>Find it!!</button>
                     </div>
+                    <div className="filterIconDiv">
+                        <i className="fa fa-filter filterIcon" aria-hidden="true" onClick={handleFilter}> Sort (Desc.)</i>
+
+                    </div>
                     <div className="imageContainer">
                         {isClicked ? !loading ?
-                            <div
-                                style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '36px' }} >
+                            <div className='cardContainer'
+                            >
                                 {custData.map((card, index) => (
-                                    <Card key={index} title={card.firstName} description={card.email} />
+                                    <Card key={index} ind={index + 1} Name={card.firstName} phone={card.phone} email={card.email} price={card.price} />
                                 ))}
-
+                                {/* style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 2fr))', gap: '36px', justifyContent: "center" }} */}
                             </div> : <img src={SearchingImageAnimation} alt="Searching" /> :
                             <img src={DeliveryBoyAnimation} alt="Loading" />}
                     </div>

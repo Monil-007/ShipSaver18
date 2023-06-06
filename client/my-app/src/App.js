@@ -14,12 +14,15 @@ import Sidebar from "./components/MFP/SideBar/Sidebar";
 import Trial5 from "./components/MFP/SideBar/trial/Trial5";
 import RegisterProduct from "./components/MFP/SideBar/MFP_Components/RegisterProduct/RegisterProduct";
 import FindSimilarCustomers from "./components/MFP/SideBar/MFP_Components/RegisterProduct/FindSimilarCustomers/FindSimilarCustomers";
-import Login from "./components/Login/Login";
+import Login from "./components/Authentication/Login/Login.jsx";
+import dummyImage from '../src/assets/icons/dummyImage.png'
+import Signup from "./components/Authentication/Signup/Signup.jsx";
 //import InputForm from "./components/InputForm/InputForm";
 
 function App() {
 
   const [user, setUser] = useState(null);
+  const [username, setUsername] = useState("");
 
   useEffect(() => {
     const getUser = () => {
@@ -38,6 +41,7 @@ function App() {
         })
         .then((resObject) => {
           setUser(resObject.user);
+          setUsername(resObject.user.firstName);
         })
         .catch((err) => {
           console.log(err);
@@ -52,6 +56,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<LandingPage />} />
           <Route exact path='/login18' element={<Login />}></Route>
+          <Route exact path='/Signup' element={<Signup />}></Route>
           <Route exact path='/login1' element={user ? <Navigate to="/" /> : <Login />}></Route>
           <Route exact path='/sp' element={<SecondPage />} />
           <Route exact path='/mp' element={<Sidebar />} />
@@ -61,7 +66,11 @@ function App() {
         </Routes>
 
       </Router>
-
+      {user && (
+        <div className="profile-info">
+          <img src={dummyImage} alt="Profile" className="profile-pic" />
+          <p className="username">Hello, {username}</p>
+        </div>)}
     </>
 
 

@@ -12,7 +12,7 @@ const RegisterProduct = ({ setFormData }) => {
     const [lastname, setLastname] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [gender, setGender] = useState('');
+    const [reqgender, setReqGender] = useState('');
     const [delcharge, setDelcharge] = useState('');
     const [accrange, setAccrange] = useState('');
     const [prodlink, setProdlink] = useState('');
@@ -23,7 +23,7 @@ const RegisterProduct = ({ setFormData }) => {
         middlename: '',
         lastname: '',
         phone: '',
-        gender: '',
+        reqgender: '',
         email: '',
         prodprice: '',
         prodlink: '',
@@ -133,8 +133,8 @@ const RegisterProduct = ({ setFormData }) => {
                     </div>
                     <div className="form-row-2">
                         <div className="form-item">
-                            <label className='input-item-left' htmlFor="input1">Req. Gender:</label>
-                            <input className='input-item-left' onChange={handleChange} type="text" id="input1" name="gender" value={formData.gender} />
+                            <label className='input-item-left' htmlFor="input1">Required gender:</label>
+                            <input className='input-item-left' onChange={handleChange} type="text" id="input1" name="reqgender" value={formData.reqgender} />
                         </div>
                         <div className="form-item">
                             <label className='input-item-right' htmlFor="input2">Acceptable Range (in kms):</label>
