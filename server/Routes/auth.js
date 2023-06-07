@@ -4,6 +4,7 @@ const passport = require("passport");
 const CLIENT_URL = "http://localhost:3001/";
 
 router.get("/login/success", (req, res) => {
+
     if (req.user) {
         res.status(200).json({
             success: true,
@@ -11,6 +12,9 @@ router.get("/login/success", (req, res) => {
             user: req.user,
             //   cookies: req.cookies
         });
+    }
+    else {
+        console.log("no user found");
     }
 });
 

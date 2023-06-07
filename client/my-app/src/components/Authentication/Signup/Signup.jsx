@@ -22,7 +22,7 @@ const Signup = () => {
 
     const handleManualSignup = async () => {
         try {
-            const response = await axios.post('http://localhost:3000/manualSignup', { username, password });
+            const response = await axios.post('http://localhost:3000/authManual/manualSignup', { username, password });
             console.log(response.data.message);
             // Redirect or perform other actions after successful signup
         } catch (error) {

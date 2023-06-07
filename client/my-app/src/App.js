@@ -17,7 +17,9 @@ import FindSimilarCustomers from "./components/MFP/SideBar/MFP_Components/Regist
 import Login from "./components/Authentication/Login/Login.jsx";
 import dummyImage from '../src/assets/icons/dummyImage.png'
 import Signup from "./components/Authentication/Signup/Signup.jsx";
-//import InputForm from "./components/InputForm/InputForm";
+import { setUser } from '././Actions/formAction';
+import Store from './store.js';
+
 
 function App() {
 
@@ -40,8 +42,9 @@ function App() {
           throw new Error("authentication has been failed!");
         })
         .then((resObject) => {
-          setUser(resObject.user);
+          Store.dispatch(setUser(resObject.user)); // Dispatch the user data to the Redux store
           setUsername(resObject.user.firstName);
+          console.log(resObject.user);
         })
         .catch((err) => {
           console.log(err);
@@ -62,7 +65,7 @@ function App() {
           <Route exact path='/mp' element={<Sidebar />} />
           <Route exact path='/dashboard' element={<Trial5 />} />
           <Route exact path='/reg_product' element={<RegisterProduct />} />
-          <Route exact path='/find_sim_cust' element={<FindSimilarCustomers />} />
+          <Route exact path='/find_sim_cust' element={<FindSimilarCustomers user={user} />} />
         </Routes>
 
       </Router>

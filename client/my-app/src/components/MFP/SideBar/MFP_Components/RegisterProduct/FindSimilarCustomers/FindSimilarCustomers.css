@@ -47,6 +47,7 @@
     outline: none;
 }
 
+
 .GSC-main>div>div {
     display: grid;
     grid-template-columns: repeat(3, minmax(300px, 1fr));
@@ -86,6 +87,13 @@
     font-weight: bold;
     color: #333;
 }
+
+
+.filterIconDiv {
+    position: absolute;
+    right: 0px;
+}
+
 
 
 .imageContainer {

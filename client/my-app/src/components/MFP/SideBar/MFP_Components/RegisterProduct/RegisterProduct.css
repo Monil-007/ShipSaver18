@@ -77,10 +77,20 @@
 .form-item {
     display: flex;
     flex-direction: row;
+    gap: 8px;
 }
 
 label {
     margin-bottom: 0.5rem;
+}
+
+.field-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.err {
+    color: red;
 }
 
 .input-item-left {
@@ -101,16 +111,56 @@ label {
     }
 }
 
+.input-item-left-field {
+    /* Set the desired width and height */
+    width: 300px;
+    height: 40px;
+
+    /* Add padding and border */
+    padding: 10px;
+    border: 1px solid #ccc;
+
+    /* Customize the font */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+
+    /* Add some visual effects */
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.8s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+
+.input-item-left-field:focus {
+    /* Change the border and box shadow when the input is focused */
+    border-color: #4285f4;
+    box-shadow: 0 2px 4px rgba(66, 133, 244, 0.3);
+}
+
+/* If you want to style the placeholder text */
+.input-item-left-field::placeholder {
+    color: #999;
+}
+
+/* If you want to style the value text */
+.input-item-left-field[type="text"] {
+    /* Customize the text alignment and spacing */
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+
 .input-item-right {
     opacity: 0;
-    transform: translateX(70px);
+    transform: translateX(-70px);
     animation: slide-in-right 2.9s forwards;
 }
 
 @keyframes slide-in-right {
     0% {
         opacity: 0;
-        transform: translateX(70px);
+        transform: translateX(-70px);
     }
 
     100% {
@@ -119,6 +169,43 @@ label {
     }
 }
 
+.input-item-right-field {
+    /* Set the desired width and height */
+    width: 300px;
+    height: 40px;
+
+    /* Add padding and border */
+    padding: 10px;
+    border: 1px solid #ccc;
+
+    /* Customize the font */
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+
+    /* Add some visual effects */
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.input-item-right-field:focus {
+    /* Change the border and box shadow when the input is focused */
+    border-color: #4285f4;
+    box-shadow: 0 2px 4px rgba(66, 133, 244, 0.3);
+}
+
+/* If you want to style the placeholder text */
+.input-item-right-field::placeholder {
+    color: #999;
+}
+
+/* If you want to style the value text */
+.input-item-right-field[type="text"] {
+    /* Customize the text alignment and spacing */
+    text-align: left;
+    letter-spacing: 1px;
+}
 
 .reg_button {
     margin-top: -5em;
@@ -136,7 +223,7 @@ label {
 
 .reg_button:hover {
     transform: translate(0, -7px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.9);
 
 }
 

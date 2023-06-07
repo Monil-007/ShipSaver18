@@ -32,10 +32,12 @@ const Login = () => {
 
     const handleManualSignin = async () => {
         try {
-            const response = await axios.post('http://localhost:3000/manualSignin', { username, password });
+            console.log("radhe hari!!!")
+            const response = await axios.post('http://localhost:3000/authManual/manualSignin', { username, password });
             const token = response.data.token;
             // Store the token in local storage or a secure cookie for future use
             console.log("JWT Token: " + token);
+            navigate("/dashboard");
             // Redirect or perform other actions after successful signin
         } catch (error) {
             console.error('Incorrect Email or Password', + error);
@@ -74,8 +76,8 @@ const Login = () => {
                     </div>
                     <div className="right">
                         <input type="text" placeholder="Username" value={username} onChange={handleUsernameChange} />
-                        <input type="text" placeholder="Password" value={password} onChange={handlePasswordChange} />
-                        <button className="submit" onCLick={handleManualSignin}>Login</button>
+                        <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+                        <button className="submit" onClick={handleManualSignin}>Login</button>
                         <div className="signupText">
                             <p>Don't have an account?</p>
                             <button className="signupLink" onClick={handleTogglePage}>Signup here</button>

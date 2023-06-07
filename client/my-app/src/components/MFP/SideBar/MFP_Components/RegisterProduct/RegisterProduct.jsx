@@ -4,6 +4,7 @@ import SideBar from '../../Sidebar';
 import '../RegisterProduct/RegisterProduct.css'
 import { connect } from 'react-redux';
 import { setFormData } from '../../../../../Actions/formAction.js';
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 const RegisterProduct = ({ setFormData }) => {
@@ -45,14 +46,14 @@ const RegisterProduct = ({ setFormData }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFormData(formData);
-        console.log(formData);
-        // const errors = validateForm();
-        // if (Object.keys(errors).length === 0) {
 
-        // } else {
-        //     setErrors(errors);
-        // }
+        const errors = validateForm();
+        if (Object.keys(errors).length === 0) {
+            setFormData(formData);
+            console.log(formData);
+        } else {
+            setErrors(errors);
+        }
     };
 
 
@@ -96,49 +97,86 @@ const RegisterProduct = ({ setFormData }) => {
                 <div className="form-container">
                     <div className="form-row-2">
                         <div className="form-item">
-                            <label className='input-item-left' htmlFor="input1">Full Name:</label>
-                            <input className='input-item-left' onChange={handleChange} type="text" id="input1" name="firstname" value={formData.firstname} />
-                            {errors.firstname && <FormFeedback>{errors.firstname}</FormFeedback>}
+                            <label className='input-item-left' htmlFor="input1">Full Name :</label>
+                            <div className="field-input">
+                                <input className='input-item-left-field' onChange={handleChange} type="text" id="input1" name="firstname" value={formData.firstname} />
+                                {errors.firstname && <FormFeedback className='err'> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.firstname}</FormFeedback>}
+                            </div>
+
                         </div>
                         <div className="form-item">
-                            <label className='input-item-right' htmlFor="input1">Email ID:</label>
-                            <input className='input-item-right' onChange={handleChange} type="text" id="input1" name="email" value={formData.email} />
-                            {errors.email && <FormFeedback>{errors.email}</FormFeedback>}
+                            <label className='input-item-right' htmlFor="input1">Email ID :</label>
+                            <div className="field-input">
+                                <input className='input-item-right-field' onChange={handleChange} type="text" id="input1" name="email" value={formData.email} />
+                                {errors.email && <FormFeedback className='err'> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.email}</FormFeedback>}
+                            </div>
+
                         </div>
 
                     </div>
                     <div className="form-row-2">
 
                         <div className="form-item">
-                            <label className='input-item-left' htmlFor="input2">Phone Number:</label>
-                            <input className='input-item-left' onChange={handleChange} type="text" id="input2" name="phone" value={formData.phone} />
-                            {errors.phone && <FormFeedback>{errors.phone}</FormFeedback>}
+                            <label className='input-item-left' htmlFor="input2">Phone Number :</label>
+                            <div className="field-input">
+                                <input className='input-item-left-field' onChange={handleChange} type="text" id="input2" name="phone" value={formData.phone} />
+                                {errors.phone && <FormFeedback className="err"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.phone}</FormFeedback>}
+                            </div>
+
                         </div>
                         <div className="form-item">
-                            <label className='input-item-right' htmlFor="input4">Product Link:</label>
-                            <input className='input-item-right' onChange={handleChange} type="text" id="input4" name="prodlink" value={formData.prodlink} />
+                            <label className='input-item-right' htmlFor="input4">Product Link :</label>
+                            <input className='input-item-right-field' onChange={handleChange} type="text" id="input4" name="prodlink" value={formData.prodlink} />
                         </div>
 
                     </div>
                     <div className="form-row-2">
 
                         <div className="form-item">
-                            <label className='input-item-left' htmlFor="input5">Product Price:</label>
-                            <input className='input-item-left' onChange={handleChange} type="text" id="input5" name="prodprice" value={formData.prodprice} />
+                            <label className='input-item-left' htmlFor="input5">Product Price :</label>
+                            <input className='input-item-left-field' onChange={handleChange} type="text" id="input5" name="prodprice" value={formData.prodprice} />
                         </div>
                         <div className="form-item">
-                            <label className='input-item-right' htmlFor="input6">Delivery Charge:</label>
-                            <input className='input-item-right' onChange={handleChange} type="text" id="input6" name="delcharge" value={formData.delcharge} />
+                            <label className='input-item-right' htmlFor="input6">Delivery Charge :</label>
+                            <input className='input-item-right-field' onChange={handleChange} type="text" id="input6" name="delcharge" value={formData.delcharge} />
                         </div>
                     </div>
                     <div className="form-row-2">
                         <div className="form-item">
-                            <label className='input-item-left' htmlFor="input1">Required gender:</label>
-                            <input className='input-item-left' onChange={handleChange} type="text" id="input1" name="reqgender" value={formData.reqgender} />
+                            <label className='input-item-left' htmlFor="input1">Required gender :</label>
+                            <select
+                                className='input-item-left-field'
+                                onChange={handleChange}
+                                id="input1"
+                                name="reqgender"
+                                value={formData.reqgender}
+                            >
+                                <option value="">Select</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="any">Any</option>
+                            </select>
+
                         </div>
                         <div className="form-item">
-                            <label className='input-item-right' htmlFor="input2">Acceptable Range (in kms):</label>
-                            <input className='input-item-right' onChange={handleChange} type="text" id="input2" name="accrange" value={formData.accrange} />
+                            <label className='input-item-right' htmlFor="input2">Acceptable Range (in kms) :</label>
+
+                            <select
+                                className='input-item-right-field'
+                                onChange={handleChange}
+                                id="input2"
+                                name="accrange"
+                                value={formData.accrange}
+                            >
+                                <option value="">Select</option>
+                                <option value="1">1 km</option>
+                                <option value="2">2 km</option>
+                                <option value="3">3 km</option>
+                                <option value="4">4 km</option>
+                                <option value="5">5 km</option>
+                                <option value="6">6 km</option>
+                                <option value="7">7 km</option>
+                            </select>
                         </div>
 
                     </div>
