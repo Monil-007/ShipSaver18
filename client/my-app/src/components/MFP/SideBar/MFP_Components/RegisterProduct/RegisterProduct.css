@@ -84,6 +84,49 @@ label {
     margin-bottom: 0.5rem;
 }
 
+/* Information tooltip styles */
+.info-tooltip {
+    position: relative;
+    display: inline-block;
+    animation: slide-in-left 2.9s forwards;
+}
+
+.info-icon {
+    font-size: 14px;
+    color: #999;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.info-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.info-tooltip:hover .info-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Error message styles */
+.err {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
 .field-input {
     display: flex;
     flex-direction: column;
@@ -95,6 +138,7 @@ label {
 
 .input-item-left {
     opacity: 0;
+    font-size: 18px;
     transform: translateX(-70px);
     animation: slide-in-left 2.9s forwards;
 }
@@ -114,7 +158,7 @@ label {
 .input-item-left-field {
     /* Set the desired width and height */
     width: 300px;
-    height: 40px;
+    height: 30px;
 
     /* Add padding and border */
     padding: 10px;
@@ -153,6 +197,7 @@ label {
 
 .input-item-right {
     opacity: 0;
+    font-size: 18px;
     transform: translateX(-70px);
     animation: slide-in-right 2.9s forwards;
 }
@@ -172,7 +217,7 @@ label {
 .input-item-right-field {
     /* Set the desired width and height */
     width: 300px;
-    height: 40px;
+    height: 30px;
 
     /* Add padding and border */
     padding: 10px;
@@ -205,6 +250,10 @@ label {
     /* Customize the text alignment and spacing */
     text-align: left;
     letter-spacing: 1px;
+}
+
+.dd {
+    height: 35px;
 }
 
 .reg_button {
