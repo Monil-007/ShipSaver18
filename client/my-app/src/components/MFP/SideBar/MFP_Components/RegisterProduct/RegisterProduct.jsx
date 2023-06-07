@@ -5,7 +5,7 @@ import '../RegisterProduct/RegisterProduct.css'
 import { connect } from 'react-redux';
 import { setFormData } from '../../../../../Actions/formAction.js';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
-
+import { FaInfoCircle } from 'react-icons/fa'; // Import the info circle icon
 
 const RegisterProduct = ({ setFormData }) => {
     const [firstname, setFirstname] = useState('');
@@ -97,17 +97,25 @@ const RegisterProduct = ({ setFormData }) => {
                 <div className="form-container">
                     <div className="form-row-2">
                         <div className="form-item">
+                            <div className="info-tooltip">
+                                <FaInfoCircle className="info-icon" />
+                                <span className="info-text">Enter your full name</span>
+                            </div>
                             <label className='input-item-left' htmlFor="input1">Full Name :</label>
                             <div className="field-input">
-                                <input className='input-item-left-field' onChange={handleChange} type="text" id="input1" name="firstname" value={formData.firstname} />
+                                <input className='input-item-left-field' onChange={handleChange} placeholder='Your Full Name...' type="text" id="input1" name="firstname" value={formData.firstname} />
                                 {errors.firstname && <FormFeedback className='err'> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.firstname}</FormFeedback>}
                             </div>
 
                         </div>
                         <div className="form-item">
+                            <div className="info-tooltip">
+                                <FaInfoCircle className="info-icon" />
+                                <span className="info-text">Insert your Email ID</span>
+                            </div>
                             <label className='input-item-right' htmlFor="input1">Email ID :</label>
                             <div className="field-input">
-                                <input className='input-item-right-field' onChange={handleChange} type="text" id="input1" name="email" value={formData.email} />
+                                <input className='input-item-right-field' placeholder='Your Mail ID...' onChange={handleChange} type="text" id="input1" name="email" value={formData.email} />
                                 {errors.email && <FormFeedback className='err'> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.email}</FormFeedback>}
                             </div>
 
@@ -117,35 +125,55 @@ const RegisterProduct = ({ setFormData }) => {
                     <div className="form-row-2">
 
                         <div className="form-item">
+                            <div className="info-tooltip">
+                                <FaInfoCircle className="info-icon" />
+                                <span className="info-text">Enter your reachable and valid phone number</span>
+                            </div>
                             <label className='input-item-left' htmlFor="input2">Phone Number :</label>
                             <div className="field-input">
-                                <input className='input-item-left-field' onChange={handleChange} type="text" id="input2" name="phone" value={formData.phone} />
+                                <input className='input-item-left-field' placeholder='Your Phone no...' onChange={handleChange} type="text" id="input2" name="phone" value={formData.phone} />
                                 {errors.phone && <FormFeedback className="err"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.phone}</FormFeedback>}
                             </div>
 
                         </div>
                         <div className="form-item">
+                            <div className="info-tooltip">
+                                <FaInfoCircle className="info-icon" />
+                                <span className="info-text">Provide if you have product's link</span>
+                            </div>
                             <label className='input-item-right' htmlFor="input4">Product Link :</label>
-                            <input className='input-item-right-field' onChange={handleChange} type="text" id="input4" name="prodlink" value={formData.prodlink} />
+                            <input className='input-item-right-field' onChange={handleChange} placeholder='Paste Link of product...' type="text" id="input4" name="prodlink" value={formData.prodlink} />
                         </div>
 
                     </div>
                     <div className="form-row-2">
 
                         <div className="form-item">
+                            <div className="info-tooltip">
+                                <FaInfoCircle className="info-icon" />
+                                <span className="info-text">Write the product price i.e. CTC (without delivery)</span>
+                            </div>
                             <label className='input-item-left' htmlFor="input5">Product Price :</label>
-                            <input className='input-item-left-field' onChange={handleChange} type="text" id="input5" name="prodprice" value={formData.prodprice} />
+                            <input className='input-item-left-field' onChange={handleChange} placeholder='Purchase value of product...' type="text" id="input5" name="prodprice" value={formData.prodprice} />
                         </div>
                         <div className="form-item">
+                            <div className="info-tooltip">
+                                <FaInfoCircle className="info-icon" />
+                                <span className="info-text">What is delivery charged on the offical site</span>
+                            </div>
                             <label className='input-item-right' htmlFor="input6">Delivery Charge :</label>
-                            <input className='input-item-right-field' onChange={handleChange} type="text" id="input6" name="delcharge" value={formData.delcharge} />
+                            <input className='input-item-right-field' onChange={handleChange} placeholder='Delivery Charge for it...' type="text" id="input6" name="delcharge" value={formData.delcharge} />
                         </div>
                     </div>
                     <div className="form-row-2">
                         <div className="form-item">
+                            <div className="info-tooltip">
+                                <FaInfoCircle className="info-icon" />
+                                <span className="info-text">Select which gender match you require </span>
+                            </div>
                             <label className='input-item-left' htmlFor="input1">Required gender :</label>
                             <select
-                                className='input-item-left-field'
+                                className='input-item-left-field dd'
                                 onChange={handleChange}
                                 id="input1"
                                 name="reqgender"
@@ -159,10 +187,13 @@ const RegisterProduct = ({ setFormData }) => {
 
                         </div>
                         <div className="form-item">
+                            <div className="info-tooltip">
+                                <FaInfoCircle className="info-icon" />
+                                <span className="info-text">Select upto how much range you need a match</span>
+                            </div>
                             <label className='input-item-right' htmlFor="input2">Acceptable Range (in kms) :</label>
-
                             <select
-                                className='input-item-right-field'
+                                className='input-item-right-field dd'
                                 onChange={handleChange}
                                 id="input2"
                                 name="accrange"
