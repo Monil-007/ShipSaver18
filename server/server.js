@@ -18,11 +18,14 @@ app.use(cors({
 }));
 //app.use(cors());
 app.use(bodyParser.json());
-const authRoute = require("./Routes/auth.js");
+
 const routes = require('./Routes/route.js');
+const authRoute = require("./Routes/auth.js");
+const authManualRoute = require("./Routes/authManual.js");
 
 app.use(express.static('public'));
 
+app.use('/auth', authRoute);
 app.use('/', routes);
 app.use(
     cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
@@ -40,6 +43,7 @@ app.use(
 );
 
 app.use("/auth", authRoute);
+app.use("/authManual", authManualRoute);
 
 app.listen(3000, async function (req, res) {
     await connectDB();

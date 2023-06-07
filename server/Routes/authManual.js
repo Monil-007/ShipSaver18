@@ -46,12 +46,14 @@ router.post('/manualSignin', async (req, res) => {
         }
 
         // Create and sign a JWT token
-        const token = jwt.sign({ userId: user._id }, process.env.SECRET_KEY);
+        const token = jwt.sign({ userId: user._id }, 'rkmg7kk@18');
 
+        console.log("radhe radhe radhe radhe!!")
         res.status(200).json({ token });
     } catch (error) {
         console.error('Error during signin', error);
         res.status(500).json({ message: 'Internal server error' });
     }
 });
+module.exports = router
 

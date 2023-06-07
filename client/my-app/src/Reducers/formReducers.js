@@ -1,8 +1,29 @@
 
-import { SET_FORM_DATA } from '../Actions/formAction';
+// import { SET_FORM_DATA, SET_USER } from '../Actions/formAction';
+
+// const initialState = {
+//     formData: null,
+// };
+
+// const formDataReducer = (state = initialState, action) => {
+//     switch (action.type) {
+//         case SET_FORM_DATA:
+//             return {
+//                 ...state,
+//                 formData: action.payload,
+//             };
+//         default:
+//             return state;
+//     }
+// };
+
+
+// export default formDataReducer;
+import { SET_FORM_DATA, SET_USER } from '../Actions/formAction';
 
 const initialState = {
     formData: null,
+    user: null,
 };
 
 const formDataReducer = (state = initialState, action) => {
@@ -11,6 +32,11 @@ const formDataReducer = (state = initialState, action) => {
             return {
                 ...state,
                 formData: action.payload,
+            };
+        case SET_USER:
+            return {
+                ...state,
+                user: action.payload,
             };
         default:
             return state;

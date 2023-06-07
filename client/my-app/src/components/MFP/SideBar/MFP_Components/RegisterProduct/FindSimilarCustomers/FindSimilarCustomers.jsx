@@ -53,7 +53,7 @@ const useStyles = makeStyles({
 });
 
 
-const FindSimilarCustomers = ({ formData }) => {
+const FindSimilarCustomers = ({ formData, user }) => {
     const classes = useStyles();
     const Card = ({ ind, Name, phone, email, price }) => {
 
@@ -138,7 +138,7 @@ const FindSimilarCustomers = ({ formData }) => {
         const sortedData = [...custData].sort((a, b) => b.price - a.price);
         setCustData(sortedData);
     };
-    const [user, setUser] = useState(null);
+    const [user1, setUser1] = useState(null);
     const [username, setUsername] = useState("hare");
     return (
 
@@ -184,6 +184,7 @@ const FindSimilarCustomers = ({ formData }) => {
 const mapStateToProps = (state) => {
     return {
         formData: state.formData.formData,
+        user: state.formData.user,
     };
 };
 
