@@ -16,6 +16,7 @@ const Login = () => {
 
     const google = () => {
         window.open("http://localhost:3000/auth/google", "_self");
+
     };
 
     const github = () => {
