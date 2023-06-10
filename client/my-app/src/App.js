@@ -57,7 +57,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route exact path='/' element={<LandingPage />} />
+          <Route exact path='/' element={<Login />} />
           <Route exact path='/login18' element={<Login />}></Route>
           <Route exact path='/Signup' element={<Signup />}></Route>
           <Route exact path='/login1' element={user ? <Navigate to="/" /> : <Login />}></Route>
