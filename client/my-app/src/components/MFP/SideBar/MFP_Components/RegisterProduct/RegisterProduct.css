@@ -12,6 +12,29 @@
     animation: bounceAnimation 2s;
 }
 
+.profile-info {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.username {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+
 @keyframes bounceAnimation {
     0% {
         transform: translateY(-100%);

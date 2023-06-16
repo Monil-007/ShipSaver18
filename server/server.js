@@ -6,34 +6,18 @@ const passport = require("passport");
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const app = express();
-
-
+var cors = require('cors');
 const bodyParser = require('body-parser');
-var cors = require('cors')
-
-app.use(cors({
-    origin: 'http://localhost:3001',
-    credentials: true
-}));
-//app.use(cors());
-app.use(bodyParser.json());
+const app = express();
 
 const routes = require('./Routes/route.js');
 const authRoute = require("./Routes/auth.js");
 const authManualRoute = require("./Routes/authManual.js");
 
+
+
 app.use(express.static('public'));
-
-app.use('/auth', authRoute);
-app.use('/', routes);
-app.use(
-    cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
-);
-
-app.use(passport.initialize());
-app.use(passport.session());
-
+app.use(bodyParser.json());
 app.use(
     cors({
         origin: "http://localhost:3001",
@@ -41,7 +25,22 @@ app.use(
         credentials: true,
     })
 );
+// app.use(cors({
+//     origin: 'http://localhost:3001',
+//     credentials: true
+// }));
+//app.use(cors());
 
+app.use(
+    cookieSession({ name: "session", keys: ["lama"], maxAge: 24 * 60 * 60 * 100 })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+app.use('/', routes);
+//app.use('/auth', authRoute);
 app.use("/auth", authRoute);
 app.use("/authManual", authManualRoute);
 

@@ -1,0 +1,121 @@
+.logoutPage {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    height: 200px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+    gap: 20px;
+
+}
+
+button {
+    margin-left: 10px;
+    border-radius: 5px;
+    height: 28px;
+    width: 80px;
+
+}
+
+.Cancel {
+    background-color: rgb(50, 235, 50);
+}
+
+.Yes {
+    background-color: red;
+}
+
+.Cancel:hover {
+    background-color: rgb(144, 238, 163);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    transition: slideUp 0.5s ease-in;
+}
+
+.Yes:hover {
+    background-color: rgb(238, 180, 180);
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+    transition: slideUp 0.5s ease-in;
+}
+
+.desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    /* Adjust the height as needed */
+    width: 80%;
+    margin-top: 40vh;
+    margin-bottom: -8vh;
+
+    color: black;
+}
+
+.desc h1 {
+    color: blue;
+}
+
+.ValidatingDuck {
+    margin-top: 20px;
+    width: 50%;
+    height: 240%;
+    visibility: visible;
+}
+
+@media screen and (max-width: 768px) {
+
+    .buttons {
+        flex-direction: column;
+        margin-top: 20px;
+        align-items: center;
+    }
+
+    .desc {
+        margin-top: 20px;
+    }
+
+    .ValidatingDuck {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* @media screen and (max-width: 480px) {
+    .modal-content {
+        height: 150px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        margin-top: 40px;
+        gap: 10px;
+    }
+
+    button {
+        width: 100px;
+    }
+} */

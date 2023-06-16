@@ -68,11 +68,12 @@
 }
 
 .profile-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     position: absolute;
     top: 20px;
     right: 20px;
-    display: flex;
-    align-items: center;
 }
 
 .profile-pic {

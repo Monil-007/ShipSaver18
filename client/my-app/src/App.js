@@ -18,12 +18,13 @@ import Login from "./components/Authentication/Login/Login.jsx";
 import dummyImage from '../src/assets/icons/dummyImage.png'
 import Signup from "./components/Authentication/Signup/Signup.jsx";
 import { setUser } from '././Actions/formAction';
+import Logout from "./components/MFP/SideBar/MFP_Components/RegisterProduct/Logout/Logout";
 import Store from './store.js';
-
+import Welcome from "./components/MFP/SideBar/MFP_Components/RegisterProduct/Welcome/Welcome";
 
 function App() {
 
-  const [user, setUser] = useState(null);
+  //const [user, setUser] = useState(null);
   const [username, setUsername] = useState("");
 
   useEffect(() => {
@@ -44,7 +45,7 @@ function App() {
         .then((resObject) => {
           Store.dispatch(setUser(resObject.user)); // Dispatch the user data to the Redux store
           setUsername(resObject.user.firstName);
-          console.log(resObject.user);
+          console.log(resObject.user.displayName);
         })
         .catch((err) => {
           console.log(err);
@@ -52,20 +53,23 @@ function App() {
     };
     getUser();
   }, []);
-
+  const user = Store.getState().user;
   return (
     <>
       <Router>
         <Routes>
-          <Route exact path='/' element={<Login />} />
+          <Route exact path='/' element={user ? <Navigate to="/welcome" /> : <Login />} />
           <Route exact path='/login18' element={<Login />}></Route>
           <Route exact path='/Signup' element={<Signup />}></Route>
-          <Route exact path='/login1' element={user ? <Navigate to="/" /> : <Login />}></Route>
-          <Route exact path='/sp' element={<SecondPage />} />
-          <Route exact path='/mp' element={<Sidebar />} />
+          <Route exact path='/login1' element={user ? <Navigate to="/welcome" /> : <Login />}></Route>
+          {/* <Route exact path='/sp' element={<SecondPage />} />
+          <Route exact path='/mp' element={<Sidebar />} /> */}
+          <Route exact path='/welcome' element={<Welcome />} />
           <Route exact path='/dashboard' element={<Trial5 />} />
           <Route exact path='/reg_product' element={<RegisterProduct />} />
           <Route exact path='/find_sim_cust' element={<FindSimilarCustomers user={user} />} />
+          <Route exact path='/logout' element={<Logout />} />
+
         </Routes>
 
       </Router>

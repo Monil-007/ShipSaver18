@@ -155,7 +155,7 @@ const FindSimilarCustomers = ({ formData, user }) => {
                     {user && (
                         <div className="profile-info">
                             <img src={dummyImage} alt="Profile" className="profile-pic" />
-                            <p className="username">Hello, {username}</p>
+                            <p className="username">Hello, {user.displayName}</p>
                         </div>)}
                     <div className="findbtn">
                         <button className='findButton' onClick={FindButtonClicked}>Find it!!</button>
