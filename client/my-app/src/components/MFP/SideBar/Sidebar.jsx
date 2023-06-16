@@ -6,7 +6,7 @@ import { BiCog } from "react-icons/bi";
 import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { useState } from "react";
-import { FaCashRegister } from "react-icons/fa";
+import { FaCashRegister, FaSignOutAlt } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./Sidebarmenu";
 import '../SideBar/Sidebar.css';
@@ -14,6 +14,11 @@ import { useEffect } from "react";
 
 
 const routes = [
+    {
+        path: "/welcome",
+        name: "Welcome",
+        icon: <FaHome />,
+    },
     {
         path: "/dashboard",
         name: "Dashboard",
@@ -98,6 +103,11 @@ const routes = [
         path: "/saved",
         name: "Saved",
         icon: <AiFillHeart />,
+    },
+    {
+        path: "/logout",
+        name: "Logout",
+        icon: <FaSignOutAlt />,
     },
 ];
 
@@ -236,6 +246,27 @@ const SideBar = ({ children }) => {
                                 </NavLink>
                             );
                         })}
+                        {/* <NavLink
+                            to={`/logout?timestamp=${Date.now()}`}
+                            key={index}
+                            className="link"
+                            activeClassName="active"
+                        >
+                            <div className="icon">{route.icon}</div>
+                            <AnimatePresence>
+                                {isOpen && (
+                                    <motion.div
+                                        variants={showAnimation}
+                                        initial="hidden"
+                                        animate="show"
+                                        exit="hidden"
+                                        className="link_text"
+                                    >
+                                        Logout}
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </NavLink> */}
                     </section>
                 </motion.div>
 

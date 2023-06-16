@@ -4,7 +4,7 @@ const passport = require("passport");
 const CLIENT_URL = "http://localhost:3001/dashboard";
 
 router.get("/login/success", (req, res) => {
-
+    console.log("radhe govind: " + req.user.displayName);
     if (req.user) {
         res.status(200).json({
             success: true,
@@ -27,7 +27,7 @@ router.get("/login/failed", (req, res) => {
 
 router.get("/logout", (req, res) => {
     req.logout();
-    res.redirect(CLIENT_URL);
+    res.redirect('http://localhost:3001/dashboard');
 });
 
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));

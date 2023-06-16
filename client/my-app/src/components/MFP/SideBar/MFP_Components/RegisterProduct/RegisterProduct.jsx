@@ -6,8 +6,10 @@ import { connect } from 'react-redux';
 import { setFormData } from '../../../../../Actions/formAction.js';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
 import { FaInfoCircle } from 'react-icons/fa'; // Import the info circle icon
+import dummyImage from '../../../../../assets/icons/dummyImage.png'
 
-const RegisterProduct = ({ setFormData }) => {
+
+const RegisterProduct = ({ setFormData, user }) => {
     const [firstname, setFirstname] = useState('');
     const [middlename, setMiddlename] = useState('');
     const [lastname, setLastname] = useState('');
@@ -94,6 +96,11 @@ const RegisterProduct = ({ setFormData }) => {
             </div>
             <div className="getDetails">
                 <h1>Register Product</h1>
+                {user && (
+                    <div className="profile-info">
+                        <img src={dummyImage} alt="Profile" className="profile-pic" />
+                        <p className="username">Hello, {user.displayName}</p>
+                    </div>)}
                 <div className="form-container">
                     <div className="form-row-2">
                         <div className="form-item">
@@ -220,124 +227,17 @@ const RegisterProduct = ({ setFormData }) => {
                     </div>
                 </div>
             </div>
-
-            {/* <div className="form-container">
-                <h1>Register Product</h1>
-                <Container className="cnt">
-                    <Form onSubmit={handleSubmit} >
-                        <Row className="r1">
-                            <Col sm={6}>
-                                <FormGroup>
-                                    <Label for="name">First Name:</Label>
-                                    <Input
-                                        type="text"
-                                        id="firstname"
-                                        name="firstname"
-                                        value={formData.firstname}
-                                        onChange={handleChange}
-                                        invalid={errors.firstname !== undefined}
-                                    />
-                                    {errors.firstname && <FormFeedback>{errors.firstname}</FormFeedback>}
-                                </FormGroup>
-                            </Col>
-                            <Col sm={6}>
-                                <FormGroup>
-                                    <Label for="name">Last Name:</Label>
-                                    <Input
-                                        type="text"
-                                        id="lastname"
-                                        name="lastname"
-                                        value={formData.lastname}
-                                        onChange={handleChange}
-                                        invalid={errors.lastname !== undefined}
-                                    />
-                                    {errors.lastname && <FormFeedback>{errors.lastname}</FormFeedback>}
-                                </FormGroup>
-                            </Col>
-                            <Col sm={6} >
-                                <FormGroup>
-                                    <Label for="phone">Phone Number:</Label>
-                                    <Input
-                                        type="text"
-                                        id="phone"
-                                        name="phone"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        invalid={errors.phone !== undefined}
-                                    />
-                                    {errors.phone && <FormFeedback>{errors.phone}</FormFeedback>}
-                                </FormGroup>
-                            </Col>
-                        </Row>
-                        <Row className="r1">
-                            <Col sm={6}>
-                                <FormGroup>
-                                    <Label for="gender">Gender:</Label>
-                                    <Input
-                                        type="select"
-                                        id="gender"
-                                        name="gender"
-                                        value={formData.gender}
-                                        onChange={handleChange}
-                                        invalid={errors.gender !== undefined}
-                                    >
-                                        <option value="">Select</option>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="other">Other</option>
-                                    </Input>
-                                </FormGroup>
-                            </Col>
-                            <Col sm={6}>
-                                <FormGroup>
-                                    <Label for="email">Email ID:</Label>
-                                    <Input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        invalid={errors.email !== undefined}
-                                    />
-                                    {errors.email && <FormFeedback>{errors.email}</FormFeedback>}
-                                </FormGroup>
-                            </Col>
-                        </Row>
-                        <Row className="r1">
-                            <Col sm={6}>
-                                <FormGroup>
-                                    <Label for="price">Product Price:</Label>
-                                    <Input
-                                        type="text"
-                                        id="price"
-                                        name="price"
-                                        value={formData.price}
-                                        onChange={handleChange}
-                                    />
-                                </FormGroup>
-                            </Col>
-                            <Col sm={6}>
-                                <FormGroup>
-                                    <Label for="quantity">Quantity:</Label>
-                                    <Input
-                                        type="text"
-                                        id="quantity"
-                                        name="quantity"
-                                        value={formData.quantity}
-                                        onChange={handleChange}
-                                    />
-                                </FormGroup>
-                            </Col>
-                        </Row>
-                  
-        </Form>
-                </Container >
-            </div >  */}
-
         </div >
 
     );
 };
 
-export default connect(null, { setFormData })(RegisterProduct);
+const mapStateToProps = (state) => {
+    return {
+        formData: state.formData.formData,
+        user: state.formData.user,
+    };
+};
+
+export default connect(mapStateToProps)(RegisterProduct);
 // export default RegisterProduct;
