@@ -41,6 +41,27 @@ const find_delivery_savers_func = async (req, res) => {
 
 }
 
+const close_order_func = async (req, res) => {
+    console.log("Inside get req, hare krishna");
+    console.log(req.body);
+    // const FN = req.body.firstName;
+
+    const price = req.body.prodprice;
+    //const EL = req.body.email;
+    // { price: { $lte: 500 } }
+    var res_array = [];
+    //const dt1 = await usr.find({ age: { $gte: `${price}` } });
+    await usr.find({ price: { $gte: `${price}` } }).then(
+        (dwt) => { console.log(dwt); res_array = dwt }
+    )
+    console.log(res_array);
+    //const rs = usr.find({ "price": "500" });
+    //rs.map(entry => console.log(entry));
+    //console.log(rs);
+    //if (dt1) { console.log(dt1); }
+    res.status(200).send(res_array);
+
+}
 
 
-module.exports = { register_product_func, find_delivery_savers_func };
+module.exports = { register_product_func, find_delivery_savers_func, close_order_func };
