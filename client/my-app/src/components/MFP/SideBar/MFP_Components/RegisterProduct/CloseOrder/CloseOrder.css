@@ -33,9 +33,23 @@
     margin-bottom: 10px;
     padding: 10px;
     background-color: #f0f0f0;
-    transition: height 0.5s ease-in-out;
+    transition: transform 0.8s, box-shadow 0.4s, border-color 0.5s;
     box-shadow: 2px 2px 1px rgb(72, 72, 77);
     border: 1px solid #ccc;
+}
+
+.orderRow.hovered {
+    filter: none;
+}
+
+.orderRow.hovered .expandButton {
+    transform: rotate(180deg);
+}
+
+.orderRow:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-color: #888;
 }
 
 .orderRow.extended {
@@ -56,12 +70,17 @@
     transition: transform 0.3s;
 }
 
+/* 
 .orderRow .expandButton:focus {
     outline: none;
 }
 
 .orderRow.extended .expandButton {
     transform: rotate(180deg);
+} */
+
+.orderRow .expandButton:focus {
+    outline: none;
 }
 
 .buttonsWrapper {
@@ -72,10 +91,16 @@
     opacity: 0;
 }
 
-.orderRow.extended .buttonsWrapper {
+.orderRow.hovered .buttonsWrapper {
     opacity: 1;
 }
 
 button {
     margin-right: 10px;
 }
+
+/* 
+.orderRow:hover~.orderRow,
+.orderRow~.orderRow:hover {
+    filter: blur(2px);
+} */

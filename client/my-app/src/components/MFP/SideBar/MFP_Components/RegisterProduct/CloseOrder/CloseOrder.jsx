@@ -4,9 +4,9 @@ import SideBar from '../../../Sidebar';
 
 const CloseOrder = () => {
     const [orders, setOrders] = useState([
-        { id: 1, name: 'Order 1', isExtended: false },
-        { id: 2, name: 'Order 2', isExtended: false },
-        { id: 3, name: 'Order 3', isExtended: false },
+        { id: 1, name: 'Order 1', isExtended: false, isHovered: false },
+        { id: 2, name: 'Order 2', isExtended: false, isHovered: false },
+        { id: 3, name: 'Order 3', isExtended: false, isHovered: false },
     ]);
 
     const toggleOrderExtended = (orderId) => {
@@ -17,6 +17,13 @@ const CloseOrder = () => {
         );
     };
 
+    const toggleOrderHovered = (orderId, isHovered) => {
+        setOrders((prevOrders) =>
+            prevOrders.map((order) =>
+                order.id === orderId ? { ...order, isHovered: isHovered } : order
+            )
+        );
+    };
     const handleOrderClose = (orderId) => {
         // Add code here to handle order close
         console.log(`Closing order ${orderId}`);
@@ -25,6 +32,7 @@ const CloseOrder = () => {
                 order.id === orderId ? { ...order, isExtended: !order.isExtended } : order
             )
         );
+
     };
 
     const handleOrderPending = (orderId) => {
@@ -40,7 +48,10 @@ const CloseOrder = () => {
                 {orders.map((order) => (
                     <div
                         key={order.id}
-                        className={`orderRow ${order.isExtended ? 'extended' : ''}`}
+                        className={`orderRow ${order.isExtended ? 'extended' : ''} ${order.isHovered ? 'hovered' : ''
+                            }`}
+                        onMouseEnter={() => toggleOrderHovered(order.id, true)}
+                        onMouseLeave={() => toggleOrderHovered(order.id, false)}
                     >
                         <div>{order.name}</div>
                         {order.isExtended ? (
