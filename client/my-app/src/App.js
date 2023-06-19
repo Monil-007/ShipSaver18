@@ -21,6 +21,8 @@ import { setUser } from '././Actions/formAction';
 import Logout from "./components/MFP/SideBar/MFP_Components/RegisterProduct/Logout/Logout";
 import Store from './store.js';
 import Welcome from "./components/MFP/SideBar/MFP_Components/RegisterProduct/Welcome/Welcome";
+import CloseOrder from "./components/MFP/SideBar/MFP_Components/RegisterProduct/CloseOrder/CloseOrder";
+
 
 function App() {
 
@@ -69,7 +71,7 @@ function App() {
           <Route exact path='/reg_product' element={<RegisterProduct />} />
           <Route exact path='/find_sim_cust' element={<FindSimilarCustomers user={user} />} />
           <Route exact path='/logout' element={<Logout />} />
-
+          <Route exact path='/closeOrder' element={<CloseOrder />} />
         </Routes>
 
       </Router>
