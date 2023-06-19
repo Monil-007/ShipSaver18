@@ -1,0 +1,32 @@
+.styleContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    font-size: 20px;
+    animation: blinking 1s infinite;
+}
+
+
+.styleHead {
+    margin-top: 2vh;
+    color: brown;
+}
+
+
+
+@keyframes blinking {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

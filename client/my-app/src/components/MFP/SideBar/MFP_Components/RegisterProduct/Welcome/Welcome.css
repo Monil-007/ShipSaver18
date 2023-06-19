@@ -24,9 +24,21 @@
 }
 
 .carousel {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     text-align: center;
+}
+
+.caroHead {
+
+    text-align: left;
+}
+
+.caroHead .h3 {
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    width: 8em;
 }
 
 @keyframes slideInTop {
