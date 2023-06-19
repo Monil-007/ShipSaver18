@@ -40,21 +40,19 @@
 
 .orderRow.hovered {
     filter: none;
+    z-index: 2;
 }
 
-.orderRow.hovered .expandButton {
+/* .orderRow.hovered .expandButton {
     transform: rotate(180deg);
-}
+} */
 
 .orderRow:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     border-color: #888;
-}
+    z-index: 1;
 
-.orderRow.extended {
-    height: 120%;
-    /* Increase the height by 20% */
 }
 
 .orderRow .expandButton {
@@ -70,28 +68,23 @@
     transition: transform 0.3s;
 }
 
-/* 
 .orderRow .expandButton:focus {
     outline: none;
 }
 
-.orderRow.extended .expandButton {
-    transform: rotate(180deg);
-} */
+.orderRow .expandButton .arrow {
+    margin-left: 5px;
+    transition: transform 0.5s;
+}
 
-.orderRow .expandButton:focus {
-    outline: none;
+.rotate {
+    transform: rotate(180deg);
 }
 
 .buttonsWrapper {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
-}
-
-.orderRow.hovered .buttonsWrapper {
+    margin-top: 30px;
     opacity: 1;
 }
 
