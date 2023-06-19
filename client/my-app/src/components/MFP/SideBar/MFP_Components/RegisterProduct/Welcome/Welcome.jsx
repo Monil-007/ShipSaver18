@@ -23,6 +23,9 @@ const Welcome = () => {
                     minima ea quibusdam voluptates sit at laboriosam harum earum.
                 </div>
                 <div className="carousel">
+                    <div className="CaroHead">
+                        <h3>How to Use:</h3>
+                    </div>
                     <Carousel />
                 </div>
             </div>
