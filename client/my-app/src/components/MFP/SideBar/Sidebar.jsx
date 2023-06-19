@@ -45,8 +45,8 @@ const routes = [
         icon: <MdMessage />,
     },
     {
-        path: "/analytics",
-        name: "Analytics",
+        path: "/closeOrder",
+        name: "Close Order",
         icon: <BiAnalyse />,
     },
     {
@@ -161,7 +161,7 @@ const SideBar = ({ children }) => {
             <div className="main-container">
                 <motion.div
                     animate={{
-                        width: isOpen ? "200px" : "45px",
+                        width: isOpen ? "210px" : "45px",
 
                         transition: {
                             duration: 0.5,
@@ -181,7 +181,7 @@ const SideBar = ({ children }) => {
                                     exit="hidden"
                                     className="logo"
                                 >
-                                    CutOffDelivery
+                                    ShipSaver18
                                 </motion.h1>
                             )}
                         </AnimatePresence>
