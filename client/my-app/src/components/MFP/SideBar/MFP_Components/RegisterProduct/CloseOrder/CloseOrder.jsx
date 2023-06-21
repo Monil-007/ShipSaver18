@@ -99,7 +99,11 @@ const CloseOrder = () => {
         <div style={{ display: 'flex' }}>
             <SideBar />
             <div className="mainWrapperCO">
-                <h1>Radhe Govind</h1>
+                <div className="closeHeading">
+                    <h1>Close Order</h1>
+                    <span>If you've got product at 0 delivery fee please close that order from below</span>
+                </div>
+
                 {yourOrders.map((order) => (
                     <div
                         key={order.id}
@@ -108,18 +112,36 @@ const CloseOrder = () => {
                         onMouseEnter={() => handleRowHover(order.id)}
                         onMouseLeave={handleRowLeave}
                     >
-                        <div>{order.firstName}</div>
-                        <button className="expandButton" onClick={() => toggleOrderExtended(order.id)}>
-                            {extended ? 'View Less' : 'Expand'}
-                            <span className={`arrow ${order.isExtended ? 'rotate' : ''}`}>&#9660;</span>
-                        </button>
-                        {order.isExtended && (
-
-                            <div className="buttonsWrapper">
-                                <button onClick={() => handleOrderClose(order.id)}>Close Order</button>
-                                <button onClick={() => handleOrderPending(order.id)}>Order Pending</button>
+                        <div className="left">
+                            <div>
+                                <span><i className="fa fa-check"></i>Name of user: {order.firstName}</span>
+                                <span><i className="fa fa-check"></i>Product Name: {order.firstName}</span></div>
+                        </div>
+                        <div className="center">
+                            <div>
+                                <span><i className="fa fa-check"></i>Booking Email: Point 1</span>
                             </div>
-                        )}
+
+                            <span><i className="fa fa-check"></i>Product Price:  Point 2</span>
+
+                        </div>
+                        <div className="right">
+                            <div>
+                                <button className="expandButton" onClick={() => toggleOrderExtended(order.id)}>
+                                    {extended ? 'View Less' : 'Expand'}
+                                    <span className={`arrow ${order.isExtended ? 'rotate' : ''}`}>&#9660;</span>
+                                </button>
+                            </div>
+                            {order.isExtended && (
+
+                                <div className="buttonsWrapper">
+                                    <button className="RetraceOrder" onClick={() => handleOrderClose(order.id)}>Retrace Order</button>
+                                    <button className="ContinueOrder" onClick={() => handleOrderPending(order.id)}>Continue Order</button>
+                                </div>
+                            )}
+
+                        </div>
+
                         {/* {!order.isExtended && (
                             <button className="expandButton" onClick={() => toggleOrderExtended(order.id)}>
                                 {order.id === hoveredRow ? 'View Less' : 'Expand'}
