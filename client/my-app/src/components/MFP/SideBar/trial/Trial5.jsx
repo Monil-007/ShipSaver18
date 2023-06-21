@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import SideBar from '../Sidebar';
+import { v4 as uuidv4 } from 'uuid';
+
 
 const Trial5 = () => {
     const [isLoading, SetIsLoading] = useState(false);
@@ -9,7 +11,9 @@ const Trial5 = () => {
     const [price, setPrice] = useState(0);
 
     const caller = async () => {
+        console.log(uuidv4());
         const dt = {
+            id18: uuidv4(),
             firstName: `${firstName}`,
             lastName: `${lastName}`,
             email: `${email}`,
@@ -25,13 +29,15 @@ const Trial5 = () => {
     }
 
     const getCust = async () => {
+        console.log(uuidv4());
         const dt = {
+            id18: uuidv4(),
             firstName: `${firstName}`,
             lastName: `${lastName}`,
             email: `${email}`,
             price: `${price}`,
         }
-        await fetch(`http://localhost:3000/DeliverySaverApi/rkGetSavers`, {
+        await fetch(`http://localhost:3000/DeliverySaverApi/rkRegister`, {
             method: "POST",
             body: JSON.stringify(dt),
             headers: {
