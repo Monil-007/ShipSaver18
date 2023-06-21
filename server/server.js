@@ -9,6 +9,13 @@ require('dotenv').config();
 var cors = require('cors');
 const bodyParser = require('body-parser');
 const app = express();
+app.use(
+    cors({
+        origin: "http://localhost:3001",
+        methods: "GET,POST,PUT,DELETE",
+        credentials: true,
+    })
+);
 
 const routes = require('./Routes/route.js');
 const authRoute = require("./Routes/auth.js");
