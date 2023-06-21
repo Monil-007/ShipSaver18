@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import '../CloseOrder/CloseOrder.css';
 import SideBar from '../../../Sidebar';
 
@@ -28,8 +29,26 @@ const CloseOrder = () => {
                 order.id === orderId ? { ...order, isExtended: !order.isExtended } : order
             )
         );
-
-        console.log(`Closing order ${orderId}`);
+        fetch('http://localhost:3000/DeliverySaverApi/rkCloseOrder', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ orderId }), // Pass the orderId to the backend
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    // Order closed successfully, remove the order from the state
+                    setOrders((prevOrders) => prevOrders.filter((order) => order.id !== orderId));
+                } else {
+                    // Failed to close order, handle the error
+                    console.log(data.message);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     };
 
     const handleOrderPending = (orderId) => {

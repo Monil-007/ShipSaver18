@@ -6,7 +6,7 @@ const { register_product_func, find_delivery_savers_func, close_order_func } = r
 
 router.post('/DeliverySaverApi/rkRegister', register_product_func);
 router.post('/DeliverySaverApi/rkGetSavers', find_delivery_savers_func);
-router.post('/DeliverySaverApi/rkCloseOrder', close_order_func)
+router.delete('/DeliverySaverApi/rkCloseOrder', close_order_func)
 
 
 
