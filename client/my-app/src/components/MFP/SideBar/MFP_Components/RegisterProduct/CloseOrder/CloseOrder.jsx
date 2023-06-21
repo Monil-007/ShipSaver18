@@ -1,21 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import '../CloseOrder/CloseOrder.css';
 import SideBar from '../../../Sidebar';
+import { useSelector } from 'react-redux';
 
 const CloseOrder = () => {
     const [hoveredRow, setHoveredRow] = useState(null);
     const [extended, setExtended] = useState(false);
-
-    const [orders, setOrders] = useState([
-        { id: 1, name: 'Order 1', isExtended: false },
-        { id: 2, name: 'Order 2', isExtended: false },
-        { id: 3, name: 'Order 3', isExtended: false },
+    const formData18 = useSelector(state => state.formData);
+    const reduxUser = useSelector(state => state.formData.user);
+    const [fg, setFg] = useState(false);
+    const [yourOrders, setYourOrders] = useState([
+        { id: 5, name: 'Order 1', isExtended: false },
+        // { id: 2, name: 'Order 2', isExtended: false },
+        // { id: 3, name: 'Order 3', isExtended: false },
     ]);
+    const getYourOrders = () => {
+        if (formData18.user && formData18.user.id) {
+            console.log(typeof (formData18.user.id));
+            const userData = {
+                userID: `${formData18.user.id}`
+            } // Log the updated formData
+            fetch('http://localhost:3000/DeliverySaverApi/rkGetYourOrders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+                .then(resp => resp.json())
+                .then((dt1) => {
+                    console.log(dt1);
+                    setYourOrders(dt1);
+                    setFg(!fg);
+                })
+                .catch(err => console.log(err));
+            console.log(yourOrders);
+        }
+    }
+    useEffect(() => {
+        getYourOrders();
+
+    }, [formData18]);
 
     const toggleOrderExtended = (orderId) => {
         setExtended(true);
-        setOrders((prevOrders) =>
+        setYourOrders((prevOrders) =>
             prevOrders.map((order) =>
                 order.id === orderId ? { ...order, isExtended: !order.isExtended } : order
             )
@@ -24,7 +54,7 @@ const CloseOrder = () => {
 
     const handleOrderClose = (orderId) => {
         setExtended(false);
-        setOrders((prevOrders) =>
+        setYourOrders((prevOrders) =>
             prevOrders.map((order) =>
                 order.id === orderId ? { ...order, isExtended: !order.isExtended } : order
             )
@@ -40,7 +70,7 @@ const CloseOrder = () => {
             .then((data) => {
                 if (data.success) {
                     // Order closed successfully, remove the order from the state
-                    setOrders((prevOrders) => prevOrders.filter((order) => order.id !== orderId));
+                    setYourOrders((prevOrders) => prevOrders.filter((order) => order.id !== orderId));
                 } else {
                     // Failed to close order, handle the error
                     console.log(data.message);
@@ -53,6 +83,7 @@ const CloseOrder = () => {
 
     const handleOrderPending = (orderId) => {
         console.log(`Marking order ${orderId} as pending`);
+        setExtended(false);
     };
 
     const handleRowHover = (orderId) => {
@@ -69,7 +100,7 @@ const CloseOrder = () => {
             <SideBar />
             <div className="mainWrapperCO">
                 <h1>Radhe Govind</h1>
-                {orders.map((order) => (
+                {yourOrders.map((order) => (
                     <div
                         key={order.id}
                         className={`orderRow ${order.isExtended ? 'extended' : ''} ${order.id === hoveredRow ? 'hovered' : ''
@@ -77,7 +108,7 @@ const CloseOrder = () => {
                         onMouseEnter={() => handleRowHover(order.id)}
                         onMouseLeave={handleRowLeave}
                     >
-                        <div>{order.name}</div>
+                        <div>{order.firstName}</div>
                         <button className="expandButton" onClick={() => toggleOrderExtended(order.id)}>
                             {extended ? 'View Less' : 'Expand'}
                             <span className={`arrow ${order.isExtended ? 'rotate' : ''}`}>&#9660;</span>
