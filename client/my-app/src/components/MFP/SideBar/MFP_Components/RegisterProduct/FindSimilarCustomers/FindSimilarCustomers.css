@@ -59,11 +59,101 @@
     .GSC-main>div>div {
         grid-template-columns: repeat(2, minmax(300px, 1fr));
     }
+
+    .profile-info {
+        margin-top: -3vh;
+        margin-right: -14px;
+    }
+
+    .GSC-heading {
+        margin-top: 7vh;
+    }
+
 }
 
 @media (max-width: 767px) {
     .GSC-main>div>div {
         grid-template-columns: repeat(1, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 716px) {
+    .GSC-heading h1 {
+        max-width: 80%;
+        word-wrap: break-word;
+        line-height: 1.2;
+
+    }
+
+    .GSC-heading {
+        margin-top: 28vh;
+    }
+
+    .GSC-heading h4 {
+        max-width: 80%;
+        word-wrap: break-word;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 616px) {
+    .GSC-heading h1 {
+        max-width: 60%;
+        word-wrap: break-word;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .GSC-heading h4 {
+        max-width: 60%;
+        word-wrap: break-word;
+        line-height: 1.2;
+        text-align: center;
+    }
+}
+
+@media (max-width: 516px) {
+    .GSC-heading {
+        margin-top: 34vh;
+    }
+
+    .GSC-heading h1 {
+        max-width: 45%;
+        word-wrap: break-word;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .GSC-heading h4 {
+        max-width: 45%;
+        word-wrap: break-word;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .profile-info {
+        margin-top: -3vh;
+        margin-right: -8px;
+    }
+
+
+    .filterIconDiv {
+        margin-top: 18px;
+        margin-right: -10px;
+    }
+}
+
+
+@media(max-width:563px) {
+    .profile-info {
+        margin-top: -3vh;
+        margin-right: -8px;
+    }
+
+
+    .filterIconDiv {
+        margin-top: 18px;
+        margin-right: -10px;
     }
 }
 
@@ -182,76 +272,3 @@
         align-items: center;
     }
 }
-
-
-/*   
-.GSC-main {
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1 0 auto;
-
-}
-
-.GSC-heading {
-    display: flex;
-    margin-top: 3em;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: -29em;
-}
-
-
-.findButton {
-    margin-top: -5em;
-
-    width: 20%;
-    margin: auto;
-    border-radius: 5px;
-    background-color: lightgreen;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: black;
-    box-shadow: 0dvh;
-    cursor: pointer;
-    height: 5vh;
-}
-
-.findButton:hover {
-    transform: translate(0, -2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-
-}
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-gap: 20px;
-
-}
-
-.card {
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translate(0, -2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card-title {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.card-content {
-    margin-top: 10px;
-    font-size: 14px;
-} */
