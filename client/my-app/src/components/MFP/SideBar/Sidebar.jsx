@@ -112,7 +112,9 @@ const routes = [
 ];
 
 const SideBar = ({ children }) => {
-    const [isOpen, setIsOpen] = useState(true);
+    // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
     const inputAnimation = {
         hidden: {
@@ -150,7 +152,13 @@ const SideBar = ({ children }) => {
 
     useEffect(() => {
         const handleResize = () => {
-            setIsOpen(window.innerWidth > 767);
+            if (window.innerWidth > 769) {
+                setIsOpen(true);
+            }
+            else {
+                setIsOpen(false);
+            }
+            //setIsOpen(window.innerWidth > 769);
         };
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);

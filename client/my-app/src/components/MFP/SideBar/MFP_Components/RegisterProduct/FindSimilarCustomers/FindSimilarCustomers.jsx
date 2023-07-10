@@ -149,7 +149,7 @@ const FindSimilarCustomers = ({ formData, user }) => {
                 <SideBar />
                 <div className="GSC-main" style={isClicked ? { "marginTop": "-32vh" } : { "marginTop": "-32vh" }}>
                     <div className="GSC-heading">
-                        <h1>Find Similar Customers near you</h1>
+                        <h1>Find all Similar Customers near you</h1>
                         <h4>Find Similar Customers like you to order together to save delivery charges</h4>
                     </div>
                     {user && (

@@ -88,6 +88,8 @@
 }
 
 @media (max-width: 768px) {
+
+
     .form-row {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -160,7 +162,7 @@ label {
 }
 
 .input-item-left {
-    opacity: 0;
+
     font-size: 18px;
     transform: translateX(-70px);
     animation: slide-in-left 2.9s forwards;
@@ -219,7 +221,7 @@ label {
 
 
 .input-item-right {
-    opacity: 0;
+
     font-size: 18px;
     transform: translateX(-70px);
     animation: slide-in-right 2.9s forwards;
