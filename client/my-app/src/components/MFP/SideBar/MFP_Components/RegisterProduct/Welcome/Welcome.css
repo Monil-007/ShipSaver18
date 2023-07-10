@@ -99,13 +99,131 @@
     }
 }
 
-.typing-text {
+.typing-text ul {
+    display: flex;
+    flex-direction: column;
+
+    text-align: light;
+    gap: 3vh;
+}
+
+.typing-text ul li {
+    opacity: 0;
+    text-align: left;
+}
+
+.fade-in ul li {
+    animation: fade-in-animation 1s forwards;
+    font-style: italic;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+@keyframes fade-in-animation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.fade-in ul li:nth-child(1) {
+    animation-delay: 0.5s;
+}
+
+.fade-in ul li:nth-child(2) {
+    animation-delay: 1.2s;
+}
+
+.fade-in ul li:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.fade-in ul li:nth-child(4) {
+    animation-delay: 2.7s;
+}
+
+.fade-in ul li:nth-child(5) {
+    animation-delay: 3.4s;
+}
+
+/* .typing-text {
     overflow: hidden;
     white-space: nowrap;
-    animation: typing 3s steps(40, end) both;
+    display: flex;
+    flex-direction: column;
+
+    /* animation: typing 3s steps(40, end) both; */
+/* 
+
+.typing-animation ul {
+    animation: typing 6s steps(40);
+    display: inline-block;
 }
 
 @keyframes typing {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.typing-animation ul li {
+  
+    list-style: none;
+    animation: appear 0.8s ease-in-out forwards;
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    25% {
+        transform: translateX(-15px);
+    }
+
+    40% {
+        transform: translateX(-12px);
+    }
+
+    50% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    90% {
+        transform: translateX(-3px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+*/
+.arrow {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #007bff;
+    /* Blue color */
+    border-top: 2px solid #007bff;
+    /* Blue color */
+    transform: rotate(45deg);
+    margin-right: 8px;
+}
+
+/* @keyframes typing {
     from {
         width: 0;
     }
@@ -113,4 +231,4 @@
     to {
         width: 100%;
     }
-}
+} */
