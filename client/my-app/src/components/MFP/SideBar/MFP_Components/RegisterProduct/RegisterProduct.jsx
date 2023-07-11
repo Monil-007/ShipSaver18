@@ -70,6 +70,7 @@ const RegisterProduct = ({ setFormData, user }) => {
         //     errors.middlename = 'Middle Name is required';
         // }
 
+
         if (formData.lastname.trim() === '') {
             errors.lastname = 'Last Name is required';
         }

@@ -10,6 +10,7 @@ const register_product_func = async (req, res) => {
         console.log("yess id is here jai jagannath: " + req.body.id18);
         ID18 = req.body.id18;
     }
+
     const userID = req.body.userID;
     console.log("jai jagannath, userID: " + userID);
     const FN = req.body.firstName;
@@ -29,7 +30,7 @@ const register_product_func = async (req, res) => {
 
 const find_delivery_savers_func = async (req, res) => {
     console.log("Inside get req, hare krishna");
-    console.log(req.body);
+    //console.log(req.body);
     // const FN = req.body.firstName;
 
     const price = req.body.prodprice;
