@@ -30,30 +30,39 @@ const register_product_func = async (req, res) => {
 
 const find_delivery_savers_func = async (req, res) => {
     console.log("Inside get req, hare krishna");
-    //console.log(req.body);
-    // const FN = req.body.firstName;
-
-    const price = req.body.prodprice;
+    console.log(req.body);
+    const currprice = req.body.price;
+    const curruserID = req.body.userID;
+    //console.log(price);
+    //console.log(typeof (price));
     //const EL = req.body.email;
     // { price: { $lte: 500 } }
-    var res_array = [];
+    // var res_array = [];
+
+    try {
+        const res_array = await usr.find({ price: { $gte: `${currprice}` }, userID: { $ne: `${curruserID}` } });
+        console.log(res_array);
+        res.status(200).send(res_array);
+    } catch (error) {
+        console.log(error);
+        res.status(500).send("Some error occurred");
+    }
+
     //const dt1 = await usr.find({ age: { $gte: `${price}` } });
-    await usr.find({ price: { $gte: `${price}` } }).then(
-        (dwt) => { console.log(dwt); res_array = dwt }
-    )
-    console.log(res_array);
-    //const rs = usr.find({ "price": "500" });
-    //rs.map(entry => console.log(entry));
-    //console.log(rs);
-    //if (dt1) { console.log(dt1); }
-    res.status(200).send(res_array);
+    // await usr.find({ price: { $gte: `${price}` } }).then(
+    //     (dwt) => {
+    //         //console.log(dwt);
+    //         res_array = dwt;
+    //     }
+    // )
+    // console.log(res_array.length());
+    // res.status(200).send(res_array);
+
 }
 
 const your_orders_func = async (req, res) => {
     console.log("Inside get your orders func, hare krishna");
     console.log(req.body);
-    // const FN = req.body.firstName;
-
     const userID1 = req.body.userID;
     var res_array = [];
 
@@ -61,18 +70,12 @@ const your_orders_func = async (req, res) => {
         (dwt) => { console.log(dwt); res_array = dwt }
     )
     console.log("Your orders array rk:" + res_array);
-    //const rs = usr.find({ "price": "500" });
-    //rs.map(entry => console.log(entry));
-    //console.log(rs);
-    //if (dt1) { console.log(dt1); }
     res.status(200).send(res_array);
 }
 
 const close_order_func = async (req, res) => {
     console.log("Inside close_order_func, Jai Jagannath!!!");
     console.log(req.body);
-    // const FN = req.body.firstName;
-
     try {
         const orderId = req.body.orderId; // Assuming you pass the orderId from the frontend
         console.log("got delete req for : " + orderId);
