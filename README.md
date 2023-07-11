@@ -11,6 +11,14 @@
 -> This is a boon for hostellers as well as they know almost everyone in hostel and hence can order together to get rid off high delivery fees by using this platform which provides them a list of all active nearby users.<br><br>
 
 <h3><bold> HOW TO USE THIS PORTAL</bold></h3>
+-> Signup/Login manually or directly by using Google account, github account
+-> Navigate to 'Register Order Details' section from Sidebar.
+-> Fill up your order details which you are ordering through e-commerce platforms and Register it
+-> After registering, Go to 'Find nearby ShipSavers' and there first enjoy the Gif :) then click on Find button
+-> You'll get a list of all nearby ShipSavers in a grid of card type components.
+-> You also have Filter option which consist of various filter options like sorting the list by price in ascending order.
+-> Collaborate with your appropriate ShipSaver and get rid of high delivery charges hence save your money.
+-> Its not over here, Navigate to 'Close Order' section from SideBar and close your order request for which you have saved delivery fees (so that it gets removed from the database).
 
 <h3><bold>KEY FEATURES</bold></h3>
 1. Registeration and Authentication.<br>
@@ -18,11 +26,11 @@
 3. Order Sharing and Coordination.<br>
 4. Money Saving.<br>
 5. Quickly getting list of nearby active order seekers.<br>
-6. Working with proper User ID.<br>
-7. Automated Signup/Login with Google,Github and manual signup/login features.<br>
-8. Available Option for users to be shown only to same gender people publically from our database.<br>
-9. User data privacy security by using encryption.<br>
-10. Automatic prevention against 'Denial of Service' attacks.<br><br>
+6. Automated Signup/Login with Google,Github and manual signup/login features.<br>
+7. Available Option for users to be shown only to same gender people publically from our database.<br>
+8. User data privacy security by using encryption.<br>
+9. Automatic prevention against 'Denial of Service' attacks.<br><br>
+10. Animations and effects<br>
 
 <h3><bold>Technologies Used</bold></h3>
 
@@ -33,4 +41,6 @@
 -> MongoDB<br>
 -> Passport.JS<br>
 -> Material UI<br>
+
+
 
