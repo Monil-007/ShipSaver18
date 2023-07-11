@@ -11,99 +11,100 @@ import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./Sidebarmenu";
 import '../SideBar/Sidebar.css';
 import { useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const routes = [
     {
         path: "/welcome",
-        name: "Welcome",
+        name: "Home",
         icon: <FaHome />,
     },
-    {
-        path: "/dashboard",
-        name: "Dashboard",
-        icon: <FaHome />,
-    },
+    // {
+    //     path: "/dashboard",
+    //     name: "Dashboard",
+    //     icon: <FaHome />,
+    // },
     {
         path: "/reg_product",
-        name: "Register Product",
+        name: "Fill Order Details",
         icon: <FaCashRegister />,
     },
     {
         path: "/find_sim_cust",
-        name: "Find Similar Customers",
-        icon: <FaCashRegister />,
-    },
-    {
-        path: "/users",
-        name: "Users",
+        name: "Find nearby ShipSavers",
         icon: <FaUser />,
     },
-    {
-        path: "/messages",
-        name: "Messages",
-        icon: <MdMessage />,
-    },
+    // {
+    //     path: "/users",
+    //     name: "Users",
+    //     icon: <FaUser />,
+    // },
+    // {
+    //     path: "/messages",
+    //     name: "Messages",
+    //     icon: <MdMessage />,
+    // },
     {
         path: "/closeOrder",
         name: "Close Order",
         icon: <BiAnalyse />,
     },
-    {
-        path: "/file-manager",
-        name: "File Manager",
-        icon: <AiTwotoneFileExclamation />,
-        subRoutes: [
-            {
-                path: "/settings/profile",
-                name: "Profile ",
-                icon: <FaUser />,
-            },
-            {
-                path: "/settings/2fa",
-                name: "2FA",
-                icon: <FaLock />,
-            },
-            {
-                path: "/settings/billing",
-                name: "Billing",
-                icon: <FaMoneyBill />,
-            },
-        ],
-    },
-    {
-        path: "/order",
-        name: "Order",
-        icon: <BsCartCheck />,
-    },
-    {
-        path: "/settings",
-        name: "Settings",
-        icon: <BiCog />,
-        exact: true,
-        subRoutes: [
-            {
-                path: "/settings/profile",
-                name: "Profile ",
-                icon: <FaUser />,
-            },
-            {
-                path: "/settings/2fa",
-                name: "2FA",
-                icon: <FaLock />,
-            },
-            {
-                path: "/settings/billing",
-                name: "Billing",
-                icon: <FaMoneyBill />,
-            },
-        ],
-    },
-    {
-        path: "/saved",
-        name: "Saved",
-        icon: <AiFillHeart />,
-    },
+    // {
+    //     path: "/file-manager",
+    //     name: "File Manager",
+    //     icon: <AiTwotoneFileExclamation />,
+    //     subRoutes: [
+    //         {
+    //             path: "/settings/profile",
+    //             name: "Profile ",
+    //             icon: <FaUser />,
+    //         },
+    //         {
+    //             path: "/settings/2fa",
+    //             name: "2FA",
+    //             icon: <FaLock />,
+    //         },
+    //         {
+    //             path: "/settings/billing",
+    //             name: "Billing",
+    //             icon: <FaMoneyBill />,
+    //         },
+    //     ],
+    // },
+    // {
+    //     path: "/order",
+    //     name: "Order",
+    //     icon: <BsCartCheck />,
+    // },
+    // {
+    //     path: "/settings",
+    //     name: "Settings",
+    //     icon: <BiCog />,
+    //     exact: true,
+    //     subRoutes: [
+    //         {
+    //             path: "/settings/profile",
+    //             name: "Profile ",
+    //             icon: <FaUser />,
+    //         },
+    //         {
+    //             path: "/settings/2fa",
+    //             name: "2FA",
+    //             icon: <FaLock />,
+    //         },
+    //         {
+    //             path: "/settings/billing",
+    //             name: "Billing",
+    //             icon: <FaMoneyBill />,
+    //         },
+    //     ],
+    // },
+    // {
+    //     path: "/saved",
+    //     name: "Saved",
+    //     icon: <AiFillHeart />,
+    // },
     {
         path: "/logout",
         name: "Logout",
@@ -114,7 +115,7 @@ const routes = [
 const SideBar = ({ children }) => {
     // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen);
     const inputAnimation = {
         hidden: {

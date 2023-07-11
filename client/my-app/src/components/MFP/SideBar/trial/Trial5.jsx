@@ -79,6 +79,7 @@ const Trial5 = ({ user }) => {
             },
         }).then(resp => resp.json()).then((dt) => { console.log(dt); SetIsLoading(false); }).catch((err) => { console.log(err); })
     }
+
     return (
         <div style={{ "display": "flex" }}>
             <SideBar />

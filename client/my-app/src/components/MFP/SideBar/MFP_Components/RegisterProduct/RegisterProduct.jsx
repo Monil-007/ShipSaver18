@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button, FormFeedback } from 'reactstrap';
 import SideBar from '../../Sidebar';
 import '../RegisterProduct/RegisterProduct.css'
@@ -7,9 +7,10 @@ import { setFormData } from '../../../../../Actions/formAction.js';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
 import { FaInfoCircle } from 'react-icons/fa'; // Import the info circle icon
 import dummyImage from '../../../../../assets/icons/dummyImage.png'
+import { useDispatch, useSelector } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 
-
-const RegisterProduct = ({ setFormData, user }) => {
+const RegisterProduct = ({ user }) => {
     const [firstname, setFirstname] = useState('');
     const [middlename, setMiddlename] = useState('');
     const [lastname, setLastname] = useState('');
@@ -20,6 +21,7 @@ const RegisterProduct = ({ setFormData, user }) => {
     const [accrange, setAccrange] = useState('');
     const [prodlink, setProdlink] = useState('');
     const [prodprice, setProdprice] = useState('');
+
 
     const [formData, setFormData1] = useState({
         firstname: '',
@@ -33,7 +35,27 @@ const RegisterProduct = ({ setFormData, user }) => {
         delcharge: '',
         accrange: '',
     });
+    const dispatch = useDispatch();
+    const formData18 = useSelector(state => state.formData);
+    useEffect(() => {
+        if (formData18.user && formData18.user.id) {
+            console.log(typeof (formData18.user.id));
+            const userData = {
+                userID: `${formData18.user.id}`
+            } // Log the updated formData
+            fetch('http://localhost:3000/DeliverySaverApi/rkGetYourOrders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+                .then(resp => resp.json())
+                .then((dt1) => { console.log(dt1); })
+                .catch(err => console.log(err));
+        }
 
+    }, [formData18]);
     const [errors, setErrors] = useState({});
 
     const handleChange = (e) => {
@@ -46,13 +68,34 @@ const RegisterProduct = ({ setFormData, user }) => {
 
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("inside submit hare hare");
+        console.log(uuidv4());
+        console.log(formData18.user.id);
+        const dt = {
+            userID: `${formData18.user.id}`,
+            id18: uuidv4(),
+            firstName: `${formData.firstname}`,
+            lastName: `${formData.lastname}`,
+            email: `${formData.email}`,
+            price: `${formData.prodprice}`,
+            phone: `${formData.phone}`
+        }
+        dispatch(setFormData(dt));
+        //console.log(formData);
 
+        await fetch(`http://localhost:3000/DeliverySaverApi/rkRegister`, {
+            method: "POST",
+            body: JSON.stringify(dt),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }).then(resp => resp.json()).then((dt) => { console.log(dt); }).catch((err) => { console.log(err); })
         const errors = validateForm();
         if (Object.keys(errors).length === 0) {
-            setFormData(formData);
-            console.log(formData);
+            //setFormData(formData);
+
         } else {
             setErrors(errors);
         }
@@ -69,6 +112,7 @@ const RegisterProduct = ({ setFormData, user }) => {
         // if (formData.middlename.trim() === '') {
         //     errors.middlename = 'Middle Name is required';
         // }
+
 
         if (formData.lastname.trim() === '') {
             errors.lastname = 'Last Name is required';

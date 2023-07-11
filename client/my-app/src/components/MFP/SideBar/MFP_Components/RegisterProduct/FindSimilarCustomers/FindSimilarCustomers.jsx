@@ -91,6 +91,7 @@ const FindSimilarCustomers = ({ formData, user }) => {
     const getCust = () => {
         try {
             const dt = JSON.stringify(formData);
+            console.log("See data:" + dt);
             fetch("http://localhost:3000/DeliverySaverApi/rkGetSavers", {
                 method: "POST",
                 body: dt,
@@ -128,11 +129,7 @@ const FindSimilarCustomers = ({ formData, user }) => {
             getCust();
             setLoading(false);
         }, 2000);
-
-
-        //getCust();
     }
-
 
     const handleFilter = () => {
         const sortedData = [...custData].sort((a, b) => b.price - a.price);
@@ -141,8 +138,6 @@ const FindSimilarCustomers = ({ formData, user }) => {
     const [user1, setUser1] = useState(null);
     const [username, setUsername] = useState("hare");
     return (
-
-
 
         <div className="FSC">
             <div className="GSC">
