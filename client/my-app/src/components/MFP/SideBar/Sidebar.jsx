@@ -11,28 +11,29 @@ import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./Sidebarmenu";
 import '../SideBar/Sidebar.css';
 import { useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const routes = [
     {
         path: "/welcome",
-        name: "Welcome",
+        name: "Home",
         icon: <FaHome />,
     },
-    {
-        path: "/dashboard",
-        name: "Dashboard",
-        icon: <FaHome />,
-    },
+    // {
+    //     path: "/dashboard",
+    //     name: "Dashboard",
+    //     icon: <FaHome />,
+    // },
     {
         path: "/reg_product",
-        name: "Register Product",
+        name: "Fill Order Details",
         icon: <FaCashRegister />,
     },
     {
         path: "/find_sim_cust",
-        name: "Find Similar Customers",
-        icon: <FaCashRegister />,
+        name: "Find nearby ShipSavers",
+        icon: <FaUser />,
     },
     // {
     //     path: "/users",
@@ -114,7 +115,7 @@ const routes = [
 const SideBar = ({ children }) => {
     // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen);
     const inputAnimation = {
         hidden: {
