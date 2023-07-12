@@ -3,6 +3,7 @@
  <br>
 
 Have you ever felt frustrated when your order falls short of the minimum purchase value for free delivery?? <br>
+Or are you used to order small things online very frequently but dont want to spend delivery fees everytime or dont wanna purchase high values subscription??
 Dont worry,This FIRST EVER & UNIQUE project is a one stop solution to it!<br>
 
 <h3><bold>ABOUT THE PROJECT</bold></h3>
