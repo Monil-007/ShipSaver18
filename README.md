@@ -6,7 +6,7 @@ Have you ever felt frustrated when your order falls short of the minimum purchas
 Dont worry,This project is a one stop solution to it!<br>
 
 <h3><bold>ABOUT THE PROJECT</bold></h3>
-<hr></hr>
+<hr>
 -> The ShipSaver18 Portal is a full-stack web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The platform connects like-minded shoppers who are looking to maximize their savings by finding others ordering from different ecommerce websites.<br>
 -> By joining forces, users collectively surpass the minimum order value of 500Rs and other minimum purchase value thresholds to unlock the benefits of free delivery without actually spending money on that high priced subscription of e-commerce giants.<br>
 -> This ShipSaver18 portal is really a huge Money-saver application for those who need to order very frequently and that too small small daily life usage things from e-commerce platforms.<br>
