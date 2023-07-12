@@ -27,7 +27,7 @@ const routes = [
     // },
     {
         path: "/reg_product",
-        name: "Fill Order Details",
+        name: "Register Order Details",
         icon: <FaCashRegister />,
     },
     {
