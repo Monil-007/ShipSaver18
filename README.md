@@ -3,11 +3,11 @@
  <br>
 
 Have you ever felt frustrated when your order falls short of the minimum purchase value for free delivery?? <br>
-Dont worry,This project is a one stop solution to it!<br>
+Dont worry,This FIRST EVER & UNIQUE project is a one stop solution to it!<br>
 
 <h3><bold>ABOUT THE PROJECT</bold></h3>
 <hr>
--> The ShipSaver18 Portal is a full-stack web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The platform connects like-minded shoppers who are looking to maximize their savings by finding others ordering from different ecommerce websites.<br>
+-> The ShipSaver18 Portal is a totally UNIQUE full-stack web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The platform connects same order value range shoppers who are looking to maximize their savings by finding others ordering from different ecommerce websites.<br>
 -> By joining forces, users collectively surpass the minimum order value of 500Rs and other minimum purchase value thresholds to unlock the benefits of free delivery without actually spending money on that high priced subscription of e-commerce giants.<br>
 -> This ShipSaver18 portal is really a huge Money-saver application for those who need to order very frequently and that too small small daily life usage things from e-commerce platforms.<br>
 -> On basis of my personal experience, this is a boon for hostellers as well as they know almost everyone in hostel and hence can order together to get rid off high delivery fees by using this platform which provides them a list of all active nearby users.<br><br>
@@ -45,3 +45,4 @@ Dont worry,This project is a one stop solution to it!<br>
 -> Collaborate with your appropriate ShipSaver and get rid of high delivery charges hence save your money.<br>
 -> Its not over here, Navigate to 'Close Order' section from SideBar and close your order request for which you have saved delivery fees (so that it gets removed from the database).
 
+<h3>- Project made by Gandhi Monil</h3>
