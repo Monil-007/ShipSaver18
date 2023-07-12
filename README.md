@@ -1,14 +1,13 @@
 
 <h1><strong>WELCOME TO ShipSaver18</strong></h1>
- <br></br>
+ <br>
 
 Have you ever felt frustrated when your order falls short of the minimum purchase value for free delivery?? <br>
 Dont worry,This project is a one stop solution to it!<br>
-This project is aimed at getting rid off the high delivery charges of e-commerce giants nowadays (for ex. the threshold of Rs.500) by providing a platform on which user can connect with other peeps who are ordering from the e-commerce platform. <br><br>
 
 <h3><bold>ABOUT THE PROJECT</bold></h3>
 <hr></hr>
--> The ShipSaver18 Portal is a full-stack web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The platform connects like-minded shoppers who are looking to maximize their savings by finding others ordering from different ecommerce websites.
+-> The ShipSaver18 Portal is a full-stack web application built using the MERN (MongoDB, Express.js, React.js, Node.js) stack. The platform connects like-minded shoppers who are looking to maximize their savings by finding others ordering from different ecommerce websites.<br>
 -> By joining forces, users collectively surpass the minimum order value of 500Rs and other minimum purchase value thresholds to unlock the benefits of free delivery without actually spending money on that high priced subscription of e-commerce giants.<br>
 -> This ShipSaver18 portal is really a huge Money-saver application for those who need to order very frequently and that too small small daily life usage things from e-commerce platforms.<br>
 -> On basis of my personal experience, this is a boon for hostellers as well as they know almost everyone in hostel and hence can order together to get rid off high delivery fees by using this platform which provides them a list of all active nearby users.<br><br>
@@ -22,7 +21,7 @@ This project is aimed at getting rid off the high delivery charges of e-commerce
 5. User data privacy security by using encryptions.<br>
 6. Automatic prevention against 'Denial of Service' attacks.<br>
 7. Skyrocket savings.<br>
-8. Animations and effects<br><br>
+8. Animations and effects<br>
 9. User friendly Interface.<br>
 
 <h3><bold>TECHNOLOGIES USED </bold></h3>
