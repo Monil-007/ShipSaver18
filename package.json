@@ -2,10 +2,10 @@
     "name": "nameofyourapp",
     "version": "1.0.0",
     "description": "some description",
-    "main": "./server/index.js",
+    "main": "./server/server.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "cd ./server && node index.js"
+        "start": "cd ./server && node server.js"
     },
     "engines": {
         "node": "16.x"

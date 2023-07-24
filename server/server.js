@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(
     cors({
-        origin: "http://localhost:3001",
+        origin: ["http://localhost:3001", "https://shipsaver.onrender.com"],
         methods: "GET,POST,PUT,DELETE",
         credentials: true,
     })

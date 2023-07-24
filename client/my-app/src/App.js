@@ -67,7 +67,7 @@ function App() {
           {/* <Route exact path='/sp' element={<SecondPage />} />
           <Route exact path='/mp' element={<Sidebar />} /> */}
           <Route exact path='/welcome' element={<Welcome />} />
-          <Route exact path='/dashboard' element={<Trial5 />} />
+          {/* <Route exact path='/dashboard' element={<Trial5 />} /> */}
           <Route exact path='/reg_product' element={<RegisterProduct />} />
           <Route exact path='/find_sim_cust' element={<FindSimilarCustomers user={user} />} />
           <Route exact path='/logout' element={<Logout />} />
