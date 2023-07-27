@@ -5,7 +5,7 @@ import './Login.css'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Signup from '../Signup/Signup';
+//import Signup from '../Signup/Signup';
 
 const Login = () => {
 
@@ -38,7 +38,7 @@ const Login = () => {
             const token = response.data.token;
             // Store the token in local storage or a secure cookie for future use
             console.log("JWT Token: " + token);
-            navigate("/dashboard");
+            navigate("/welcome");
             // Redirect or perform other actions after successful signin
         } catch (error) {
             console.error('Incorrect Email or Password', + error);

@@ -3,7 +3,7 @@ import axios from 'axios';
 import Google from '../../../assets/icons/google.png';
 // import Facebook from "../../assets/icons/facebook.png";
 import Github from "../../../assets/icons/github.png";
-import '../Signup/Signup.css';
+import './Signup.css';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {

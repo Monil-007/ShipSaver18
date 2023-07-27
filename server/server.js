@@ -11,7 +11,7 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(
     cors({
-        origin: "http://localhost:3001",
+        origin: ["http://localhost:3001", "https://shipsaver.onrender.com"],
         methods: "GET,POST,PUT,DELETE",
         credentials: true,
     })
@@ -53,6 +53,5 @@ app.use("/authManual", authManualRoute);
 
 app.listen(3000, async function (req, res) {
     await connectDB();
-    console.log("Jai shree krishna")
-    //res.send("Hare krishna!!");
+
 });

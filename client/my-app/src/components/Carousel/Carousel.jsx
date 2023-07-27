@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'react-carousel3';
-import '../Carousel/Carousel.css';
+import './Carousel.css';
 
 const styleContent = [{
     display: "flex",
@@ -67,7 +67,7 @@ const style = {
 };
 
 export default () => (
-    <div className=' bg-gray-300 mx-40 flex justify-center my-20 rounded py-10' >
+    <div className='carousel_header' >
 
 
         <Carousel height={320} width={1380} xOrigin={10} yOrigin={42} yRadius={48} autoPlay={true}>

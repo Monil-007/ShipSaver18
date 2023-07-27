@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const authModel = require('../Models/authSchema.js');
 require('dotenv').config();
-
+const jwt_psswd = process.env.jwt_psswd;
 router.post('/manualSignup', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -46,9 +46,8 @@ router.post('/manualSignin', async (req, res) => {
         }
 
         // Create and sign a JWT token
-        const token = jwt.sign({ userId: user._id }, 'rkmg7kk@18');
+        const token = jwt.sign({ userId: user._id }, jwt_psswd);
 
-        console.log("radhe radhe radhe radhe!!")
         res.status(200).json({ token });
     } catch (error) {
         console.error('Error during signin', error);

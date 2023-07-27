@@ -1,4 +1,5 @@
 import InputForm from "./components/InputForm/InputForm";
+import './App.css'
 //import { Routes, Route } from "react-router-dom";
 import {
   BrowserRouter as Router,
@@ -15,7 +16,8 @@ import Trial5 from "./components/MFP/SideBar/trial/Trial5";
 import RegisterProduct from "./components/MFP/SideBar/MFP_Components/RegisterProduct/RegisterProduct";
 import FindSimilarCustomers from "./components/MFP/SideBar/MFP_Components/RegisterProduct/FindSimilarCustomers/FindSimilarCustomers";
 import Login from "./components/Authentication/Login/Login.jsx";
-import dummyImage from '../src/assets/icons/dummyImage.png'
+// import dummyImage from '../src/assets/icons/dummyImage.png'
+import dummyImage from './assets/icons/dummyImage.png';
 import Signup from "./components/Authentication/Signup/Signup.jsx";
 import { setUser } from '././Actions/formAction';
 import Logout from "./components/MFP/SideBar/MFP_Components/RegisterProduct/Logout/Logout";
@@ -67,7 +69,7 @@ function App() {
           {/* <Route exact path='/sp' element={<SecondPage />} />
           <Route exact path='/mp' element={<Sidebar />} /> */}
           <Route exact path='/welcome' element={<Welcome />} />
-          <Route exact path='/dashboard' element={<Trial5 />} />
+          {/* <Route exact path='/dashboard' element={<Trial5 />} /> */}
           <Route exact path='/reg_product' element={<RegisterProduct />} />
           <Route exact path='/find_sim_cust' element={<FindSimilarCustomers user={user} />} />
           <Route exact path='/logout' element={<Logout />} />

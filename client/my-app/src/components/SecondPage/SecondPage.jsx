@@ -92,12 +92,7 @@ const SecondPage = () => {
             </Formik> */}
 
             <DataDisplay isLoading={isLoading} />
-
         </>
-
-
-
-
     );
 
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import SideBar from '../../../Sidebar';
-import '../Logout/Logout.css';
+import './Logout.css';
 import { Button } from 'reactstrap';
 import { connect } from "react-redux";
 import { makeStyles } from '@material-ui/core/styles';

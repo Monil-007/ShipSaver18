@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import SideBar from '../../../Sidebar.jsx';
-import '../Welcome/Welcome.css';
+import './Welcome.css';
 import Carousel from '../../../../../Carousel/Carousel.jsx';
 
 const Welcome = () => {

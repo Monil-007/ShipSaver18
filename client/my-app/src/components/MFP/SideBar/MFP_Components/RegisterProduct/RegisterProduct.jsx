@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button, FormFeedback } from 'reactstrap';
 import SideBar from '../../Sidebar';
-import '../RegisterProduct/RegisterProduct.css'
+import './RegisterProduct.css'
 import { connect } from 'react-redux';
 import { setFormData } from '../../../../../Actions/formAction.js';
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
