@@ -5,7 +5,7 @@ import './Login.css'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Signup from '../Signup/Signup';
+//import Signup from '../Signup/Signup';
 
 const Login = () => {
 

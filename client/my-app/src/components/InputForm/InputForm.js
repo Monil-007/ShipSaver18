@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../InputForm/IF.css";
+import "./IF.css";
 import { useNavigate } from "react-router-dom"
 
 const InputForm1 = () => {

@@ -1,4 +1,5 @@
 import InputForm from "./components/InputForm/InputForm";
+import './App.css'
 //import { Routes, Route } from "react-router-dom";
 import {
   BrowserRouter as Router,
@@ -15,7 +16,8 @@ import Trial5 from "./components/MFP/SideBar/trial/Trial5";
 import RegisterProduct from "./components/MFP/SideBar/MFP_Components/RegisterProduct/RegisterProduct";
 import FindSimilarCustomers from "./components/MFP/SideBar/MFP_Components/RegisterProduct/FindSimilarCustomers/FindSimilarCustomers";
 import Login from "./components/Authentication/Login/Login.jsx";
-import dummyImage from '../src/assets/icons/dummyImage.png'
+// import dummyImage from '../src/assets/icons/dummyImage.png'
+import dummyImage from './assets/icons/dummyImage.png';
 import Signup from "./components/Authentication/Signup/Signup.jsx";
 import { setUser } from '././Actions/formAction';
 import Logout from "./components/MFP/SideBar/MFP_Components/RegisterProduct/Logout/Logout";

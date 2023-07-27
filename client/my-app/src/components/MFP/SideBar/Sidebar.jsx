@@ -9,7 +9,7 @@ import { useState } from "react";
 import { FaCashRegister, FaSignOutAlt } from "react-icons/fa";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./Sidebarmenu";
-import '../SideBar/Sidebar.css';
+import './Sidebar.css';
 import { useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

@@ -9,6 +9,14 @@
     animation: blinking 1s infinite;
 }
 
+.carousel_header {
+    background-color: rgba(162, 161, 161, 0.704);
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
 .styleHead {
     margin-top: 2vh;

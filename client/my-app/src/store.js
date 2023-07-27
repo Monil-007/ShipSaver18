@@ -17,11 +17,4 @@ const rootReducer = combineReducers({
 const appstore = createStore(rootReducer, applyMiddleware(thunk));
 
 export default appstore;
-// Wrap your app with the Redux Provider
-// const App = () => (
-//     <Provider store={store}>
-//         <App />
-//     </Provider>
-// );
 
-// export default App;

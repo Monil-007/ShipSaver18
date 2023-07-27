@@ -3,16 +3,16 @@ const usr = require('../Models/userSchema');
 const { use } = require('../Routes/route');
 
 const register_product_func = async (req, res) => {
-    console.log("inside main controllers, radhe govind");
+    console.log("inside main controllers");
     console.log(req.body);
     let ID18 = toString(Math.floor(Math.random() * 8700));
     if (req.body.id18) {
-        console.log("yess id is here jai jagannath: " + req.body.id18);
+        console.log("yess id is here " + req.body.id18);
         ID18 = req.body.id18;
     }
 
     const userID = req.body.userID;
-    console.log("jai jagannath, userID: " + userID);
+    console.log(" userID: " + userID);
     const FN = req.body.firstName;
     const EL = req.body.email;
     const price = req.body.price;
@@ -29,7 +29,7 @@ const register_product_func = async (req, res) => {
 
 
 const find_delivery_savers_func = async (req, res) => {
-    console.log("Inside get req, hare krishna");
+    console.log("Inside get req");
     console.log(req.body);
     const currprice = req.body.price;
     const curruserID = req.body.userID;
@@ -61,7 +61,7 @@ const find_delivery_savers_func = async (req, res) => {
 }
 
 const your_orders_func = async (req, res) => {
-    console.log("Inside get your orders func, hare krishna");
+    console.log("Inside get your orders func");
     console.log(req.body);
     const userID1 = req.body.userID;
     var res_array = [];
@@ -74,7 +74,7 @@ const your_orders_func = async (req, res) => {
 }
 
 const close_order_func = async (req, res) => {
-    console.log("Inside close_order_func, Jai Jagannath!!!");
+    console.log("Inside close_order_func");
     console.log(req.body);
     try {
         const orderId = req.body.orderId; // Assuming you pass the orderId from the frontend

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import '../CloseOrder/CloseOrder.css';
+import './CloseOrder.css';
 import SideBar from '../../../Sidebar';
 import { useSelector } from 'react-redux';
 
