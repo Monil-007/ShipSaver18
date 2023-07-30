@@ -139,135 +139,143 @@ const RegisterProduct = ({ user }) => {
                 <SideBar />
             </div>
             <div className="getDetails">
-                <h1>Register Product</h1>
-                {user && (
-                    <div className="profile-info">
-                        <img src={dummyImage} alt="Profile" className="profile-pic" />
-                        <p className="username">Hello, {user.displayName}</p>
-                    </div>)}
-                <div className="form-container">
-                    <div className="form-row-2">
-                        <div className="form-item">
-                            <div className="info-tooltip">
-                                <FaInfoCircle className="info-icon" />
-                                <span className="info-text">Enter your full name</span>
-                            </div>
-                            <label className='input-item-left' htmlFor="input1">Full Name :</label>
-                            <div className="field-input">
-                                <input className='input-item-left-field' onChange={handleChange} placeholder='Your Full Name...' type="text" id="input1" name="firstname" value={formData.firstname} />
-                                {errors.firstname && <FormFeedback className='err'> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.firstname}</FormFeedback>}
-                            </div>
 
+                <div className="bg-gray-50 min-h-screen flex items-center justify-center px-16">
+                    <div className="relative w-full max-w-lg">
+                        <div className="absolute top-20 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+                        <div className="absolute top-20 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+                        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+                        <h1>Register Product</h1>
+                        {user && (
+                            <div className="profile-info">
+                                <img src={dummyImage} alt="Profile" className="profile-pic" />
+                                <p className="username">Hello, {user.displayName}</p>
+                            </div>)}
+                        <div className="form-container">
+                            <div className="form-row-2">
+                                <div className="form-item">
+                                    <div className="info-tooltip">
+                                        <FaInfoCircle className="info-icon" />
+                                        <span className="info-text">Enter your full name</span>
+                                    </div>
+                                    <label className='input-item-left' htmlFor="input1">Full Name :</label>
+                                    <div className="field-input">
+                                        <input className='input-item-left-field' onChange={handleChange} placeholder='Your Full Name...' type="text" id="input1" name="firstname" value={formData.firstname} />
+                                        {errors.firstname && <FormFeedback className='err'> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.firstname}</FormFeedback>}
+                                    </div>
+
+                                </div>
+                                <div className="form-item">
+                                    <div className="info-tooltip">
+                                        <FaInfoCircle className="info-icon" />
+                                        <span className="info-text">Insert your Email ID</span>
+                                    </div>
+                                    <label className='input-item-right' htmlFor="input1">Email ID :</label>
+                                    <div className="field-input">
+                                        <input className='input-item-right-field' placeholder='Your Mail ID...' onChange={handleChange} type="text" id="input1" name="email" value={formData.email} />
+                                        {errors.email && <FormFeedback className='err'> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.email}</FormFeedback>}
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div className="form-row-2">
+
+                                <div className="form-item">
+                                    <div className="info-tooltip">
+                                        <FaInfoCircle className="info-icon" />
+                                        <span className="info-text">Enter your reachable and valid phone number</span>
+                                    </div>
+                                    <label className='input-item-left' htmlFor="input2">Phone Number :</label>
+                                    <div className="field-input">
+                                        <input className='input-item-left-field' placeholder='Your Phone no...' onChange={handleChange} type="text" id="input2" name="phone" value={formData.phone} />
+                                        {errors.phone && <FormFeedback className="err"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.phone}</FormFeedback>}
+                                    </div>
+
+                                </div>
+                                <div className="form-item">
+                                    <div className="info-tooltip">
+                                        <FaInfoCircle className="info-icon" />
+                                        <span className="info-text">Provide if you have product's link</span>
+                                    </div>
+                                    <label className='input-item-right' htmlFor="input4">Product Link :</label>
+                                    <input className='input-item-right-field' onChange={handleChange} placeholder='Paste Link of product...' type="text" id="input4" name="prodlink" value={formData.prodlink} />
+                                </div>
+
+                            </div>
+                            <div className="form-row-2">
+
+                                <div className="form-item">
+                                    <div className="info-tooltip">
+                                        <FaInfoCircle className="info-icon" />
+                                        <span className="info-text">Write the product price i.e. CTC (without delivery)</span>
+                                    </div>
+                                    <label className='input-item-left' htmlFor="input5">Product Price :</label>
+                                    <input className='input-item-left-field' onChange={handleChange} placeholder='Purchase value of product...' type="text" id="input5" name="prodprice" value={formData.prodprice} />
+                                </div>
+                                <div className="form-item">
+                                    <div className="info-tooltip">
+                                        <FaInfoCircle className="info-icon" />
+                                        <span className="info-text">What is delivery charged on the offical site</span>
+                                    </div>
+                                    <label className='input-item-right' htmlFor="input6">Delivery Charge :</label>
+                                    <input className='input-item-right-field' onChange={handleChange} placeholder='Delivery Charge for it...' type="text" id="input6" name="delcharge" value={formData.delcharge} />
+                                </div>
+                            </div>
+                            <div className="form-row-2">
+                                <div className="form-item">
+                                    <div className="info-tooltip">
+                                        <FaInfoCircle className="info-icon" />
+                                        <span className="info-text">Select which gender match you require </span>
+                                    </div>
+                                    <label className='input-item-left' htmlFor="input1">Required gender :</label>
+                                    <select
+                                        className='input-item-left-field dd'
+                                        onChange={handleChange}
+                                        id="input1"
+                                        name="reqgender"
+                                        value={formData.reqgender}
+                                    >
+                                        <option value="">Select</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="any">Any</option>
+                                    </select>
+
+                                </div>
+                                <div className="form-item">
+                                    <div className="info-tooltip">
+                                        <FaInfoCircle className="info-icon" />
+                                        <span className="info-text">Select upto how much range you need a match</span>
+                                    </div>
+                                    <label className='input-item-right' htmlFor="input2">Acceptable Range (in kms) :</label>
+                                    <select
+                                        className='input-item-right-field dd'
+                                        onChange={handleChange}
+                                        id="input2"
+                                        name="accrange"
+                                        value={formData.accrange}
+                                    >
+                                        <option value="">Select</option>
+                                        <option value="1">1 km</option>
+                                        <option value="2">2 km</option>
+                                        <option value="3">3 km</option>
+                                        <option value="4">4 km</option>
+                                        <option value="5">5 km</option>
+                                        <option value="6">6 km</option>
+                                        <option value="7">7 km</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div className="form-row-button">
+                                <div className="form-item">
+                                    <button className="reg_button" onClick={handleSubmit}>Register the product</button>
+                                </div>
+
+
+                            </div>
                         </div>
-                        <div className="form-item">
-                            <div className="info-tooltip">
-                                <FaInfoCircle className="info-icon" />
-                                <span className="info-text">Insert your Email ID</span>
-                            </div>
-                            <label className='input-item-right' htmlFor="input1">Email ID :</label>
-                            <div className="field-input">
-                                <input className='input-item-right-field' placeholder='Your Mail ID...' onChange={handleChange} type="text" id="input1" name="email" value={formData.email} />
-                                {errors.email && <FormFeedback className='err'> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.email}</FormFeedback>}
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div className="form-row-2">
-
-                        <div className="form-item">
-                            <div className="info-tooltip">
-                                <FaInfoCircle className="info-icon" />
-                                <span className="info-text">Enter your reachable and valid phone number</span>
-                            </div>
-                            <label className='input-item-left' htmlFor="input2">Phone Number :</label>
-                            <div className="field-input">
-                                <input className='input-item-left-field' placeholder='Your Phone no...' onChange={handleChange} type="text" id="input2" name="phone" value={formData.phone} />
-                                {errors.phone && <FormFeedback className="err"> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {errors.phone}</FormFeedback>}
-                            </div>
-
-                        </div>
-                        <div className="form-item">
-                            <div className="info-tooltip">
-                                <FaInfoCircle className="info-icon" />
-                                <span className="info-text">Provide if you have product's link</span>
-                            </div>
-                            <label className='input-item-right' htmlFor="input4">Product Link :</label>
-                            <input className='input-item-right-field' onChange={handleChange} placeholder='Paste Link of product...' type="text" id="input4" name="prodlink" value={formData.prodlink} />
-                        </div>
-
-                    </div>
-                    <div className="form-row-2">
-
-                        <div className="form-item">
-                            <div className="info-tooltip">
-                                <FaInfoCircle className="info-icon" />
-                                <span className="info-text">Write the product price i.e. CTC (without delivery)</span>
-                            </div>
-                            <label className='input-item-left' htmlFor="input5">Product Price :</label>
-                            <input className='input-item-left-field' onChange={handleChange} placeholder='Purchase value of product...' type="text" id="input5" name="prodprice" value={formData.prodprice} />
-                        </div>
-                        <div className="form-item">
-                            <div className="info-tooltip">
-                                <FaInfoCircle className="info-icon" />
-                                <span className="info-text">What is delivery charged on the offical site</span>
-                            </div>
-                            <label className='input-item-right' htmlFor="input6">Delivery Charge :</label>
-                            <input className='input-item-right-field' onChange={handleChange} placeholder='Delivery Charge for it...' type="text" id="input6" name="delcharge" value={formData.delcharge} />
-                        </div>
-                    </div>
-                    <div className="form-row-2">
-                        <div className="form-item">
-                            <div className="info-tooltip">
-                                <FaInfoCircle className="info-icon" />
-                                <span className="info-text">Select which gender match you require </span>
-                            </div>
-                            <label className='input-item-left' htmlFor="input1">Required gender :</label>
-                            <select
-                                className='input-item-left-field dd'
-                                onChange={handleChange}
-                                id="input1"
-                                name="reqgender"
-                                value={formData.reqgender}
-                            >
-                                <option value="">Select</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="any">Any</option>
-                            </select>
-
-                        </div>
-                        <div className="form-item">
-                            <div className="info-tooltip">
-                                <FaInfoCircle className="info-icon" />
-                                <span className="info-text">Select upto how much range you need a match</span>
-                            </div>
-                            <label className='input-item-right' htmlFor="input2">Acceptable Range (in kms) :</label>
-                            <select
-                                className='input-item-right-field dd'
-                                onChange={handleChange}
-                                id="input2"
-                                name="accrange"
-                                value={formData.accrange}
-                            >
-                                <option value="">Select</option>
-                                <option value="1">1 km</option>
-                                <option value="2">2 km</option>
-                                <option value="3">3 km</option>
-                                <option value="4">4 km</option>
-                                <option value="5">5 km</option>
-                                <option value="6">6 km</option>
-                                <option value="7">7 km</option>
-                            </select>
-                        </div>
-
-                    </div>
-                    <div className="form-row-button">
-                        <div className="form-item">
-                            <button className="reg_button" onClick={handleSubmit}>Register the product</button>
-                        </div>
-
-
                     </div>
                 </div>
             </div>

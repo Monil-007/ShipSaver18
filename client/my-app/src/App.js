@@ -24,7 +24,7 @@ import Logout from "./components/MFP/SideBar/MFP_Components/RegisterProduct/Logo
 import Store from './store.js';
 import Welcome from "./components/MFP/SideBar/MFP_Components/RegisterProduct/Welcome/Welcome";
 import CloseOrder from "./components/MFP/SideBar/MFP_Components/RegisterProduct/CloseOrder/CloseOrder";
-
+// import 'tailwindcss/tailwind.css';
 
 function App() {
 

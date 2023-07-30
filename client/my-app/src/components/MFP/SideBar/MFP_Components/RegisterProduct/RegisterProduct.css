@@ -10,6 +10,7 @@
     margin-bottom: 15vh;
     text-align: center;
     animation: bounceAnimation 2s;
+
 }
 
 .profile-info {
@@ -65,10 +66,11 @@
 
 
 .form-container {
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    /* gap: 1rem; */
 }
 
 .form-row {
@@ -81,9 +83,13 @@
 
 .form-row-2 {
     margin-left: 16vh;
+    display: flex;
+    flex-direction: row;
+    /*     
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); */
     gap: 8rem;
+    justify-content: center;
     margin-bottom: 8vh;
 }
 
@@ -103,6 +109,7 @@
     display: flex;
     flex-direction: row;
     gap: 8px;
+
 }
 
 label {

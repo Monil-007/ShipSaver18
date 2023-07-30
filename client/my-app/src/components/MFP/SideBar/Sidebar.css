@@ -64,10 +64,10 @@ main {
 }
 
 .routes {
-    margin-top: 15px;
+    margin-top: 35px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 20px;
 }
 
 .link {
@@ -94,6 +94,7 @@ main {
     white-space: nowrap;
     font-size: 15px;
 }
+
 
 .menu {
     display: flex;
